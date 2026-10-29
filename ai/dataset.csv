@@ -1,0 +1,451 @@
+age,gender,height_cm,weight_kg,bmi,fitness_goal,avg_daily_steps,avg_workout_duration,avg_calories_burned,consistency_ratio,avg_sleep_hours,avg_water_liters,target_regimen_class,recommended_duration_min,recommended_daily_steps,recommended_active_calories
+22,Female,153.7,75.6,32.0,General Fitness,5476,21,365,0.81,8.1,1.8,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+57,Male,179.0,106.4,33.2,Weight Loss,7747,72,805,0.38,7.3,1.6,Metabolic Fat-Burn Foundation,50,9947,721
+58,Female,161.6,79.1,30.3,Weight Loss,3967,82,961,0.82,6.1,2.6,Metabolic Fat-Burn Foundation,50,8500,692
+41,Male,175.3,89.1,29.0,General Fitness,7343,82,836,0.5,7.0,1.9,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+39,Male,165.3,57.4,21.0,General Fitness,10768,80,1088,0.76,6.5,3.4,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+38,Male,172.9,65.8,22.0,Maintain Weight,5907,62,589,0.36,5.5,3.3,Balanced Functional & Mobility Routine,55,8500,610
+54,Female,150.3,69.4,30.7,Weight Loss,8913,54,607,0.29,7.7,2.6,Metabolic Fat-Burn Foundation,50,10500,744
+58,Female,159.3,71.3,28.1,Weight Loss,4223,54,530,0.22,6.9,2.0,Metabolic Fat-Burn Foundation,50,8500,692
+30,Male,161.8,55.2,21.1,Maintain Weight,3858,74,675,0.73,7.3,3.3,Balanced Functional & Mobility Routine,55,8500,610
+31,Female,159.5,79.4,31.2,Weight Loss,10706,38,530,0.78,7.0,1.9,HIIT & Resistance Conditioning,49,12206,709
+19,Female,165.8,80.3,29.2,Weight Loss,8861,26,425,0.7,6.7,1.7,HIIT & Resistance Conditioning,45,10361,634
+35,Male,164.0,88.5,32.9,General Fitness,4533,47,623,0.82,7.9,2.5,Hybrid Cardio-Strength Wellness Plan,58,9000,678
+30,Female,154.4,78.2,32.8,Weight Loss,6276,64,661,0.66,6.1,3.5,Metabolic Fat-Burn Foundation,55,8500,692
+27,Male,167.8,69.3,24.6,Improve Endurance,6687,58,696,0.72,5.8,2.5,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+54,Male,182.9,76.3,22.8,Improve Endurance,4833,62,687,0.34,8.6,2.8,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+22,Male,177.1,54.6,17.4,Maintain Weight,7119,44,618,0.27,7.1,2.6,Balanced Functional & Mobility Routine,51,8500,578
+40,Male,164.1,68.1,25.3,Maintain Weight,12325,33,571,0.62,6.9,1.5,Balanced Functional & Mobility Routine,39,10500,522
+35,Female,163.3,52.0,19.5,Muscle Gain,9460,37,588,0.42,7.7,3.2,Full-Body Hypertrophy Builder,49,9787,577
+23,Female,169.9,95.3,33.0,Weight Loss,11885,31,576,0.5,8.2,3.4,HIIT & Resistance Conditioning,45,13000,687
+19,Female,169.5,63.5,22.1,Muscle Gain,10227,51,645,0.95,6.0,1.6,Progressive Split Strength & Hypertrophy,61,10000,680
+32,Male,161.8,85.3,32.6,General Fitness,12755,77,1128,0.62,6.5,3.3,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+33,Female,170.9,54.6,18.7,General Fitness,7493,33,540,0.39,5.9,3.4,Hybrid Cardio-Strength Wellness Plan,43,9000,549
+59,Male,168.9,78.4,27.5,Improve Endurance,3706,28,313,0.82,8.7,2.7,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+38,Male,174.7,64.1,21.0,Muscle Gain,4689,16,229,0.61,7.8,2.8,Progressive Split Strength & Hypertrophy,50,7500,545
+49,Male,169.3,84.6,29.5,General Fitness,5457,72,644,0.94,6.8,2.2,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+24,Male,176.3,104.7,33.7,Weight Loss,8720,82,760,0.64,7.6,1.7,HIIT & Resistance Conditioning,65,10220,821
+61,Female,163.8,91.0,33.9,Weight Loss,4785,27,392,0.57,8.1,1.5,Metabolic Fat-Burn Foundation,41,8500,559
+61,Female,156.2,75.4,30.9,Weight Loss,4433,38,461,0.89,7.5,2.4,Metabolic Fat-Burn Foundation,50,8500,673
+42,Male,181.0,93.0,28.4,Improve Endurance,7428,34,444,0.39,8.0,3.4,Aerobic Zone-2 & Tempo Stamina Plan,49,10500,730
+39,Female,152.6,63.8,27.4,Weight Loss,4389,28,330,0.32,8.5,1.9,Metabolic Fat-Burn Foundation,42,8500,569
+56,Male,170.9,55.5,19.0,Muscle Gain,6417,64,626,0.24,7.5,3.1,Full-Body Hypertrophy Builder,50,7500,627
+20,Female,164.8,70.1,25.8,Muscle Gain,11516,76,1072,0.23,6.1,2.0,Full-Body Hypertrophy Builder,60,10000,672
+28,Male,184.6,82.8,24.3,Muscle Gain,3756,15,226,0.28,8.3,1.6,Full-Body Hypertrophy Builder,45,7500,503
+35,Male,158.0,79.4,31.8,Improve Endurance,13650,31,654,0.82,7.6,3.3,Aerobic Zone-2 & Tempo Stamina Plan,45,14000,767
+64,Female,160.0,66.6,26.0,Weight Loss,14126,75,996,0.51,7.6,2.1,HIIT & Resistance Conditioning,50,10500,877
+20,Male,157.9,60.6,24.3,Improve Endurance,5828,38,455,0.46,6.8,3.1,Aerobic Zone-2 & Tempo Stamina Plan,53,10500,771
+35,Male,182.4,109.8,33.0,Weight Loss,6554,68,769,0.88,7.7,3.4,HIIT & Resistance Conditioning,65,10000,817
+33,Female,162.5,58.1,22.0,General Fitness,5196,66,619,0.76,8.3,1.8,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+62,Female,168.0,83.8,29.7,Weight Loss,9112,80,797,0.97,8.1,2.9,HIIT & Resistance Conditioning,50,10500,829
+38,Female,156.4,82.2,33.6,Weight Loss,11356,56,671,0.69,6.1,2.8,HIIT & Resistance Conditioning,65,12856,874
+18,Female,148.0,57.2,26.1,Improve Endurance,11832,79,984,0.68,8.6,1.8,Aerobic Zone-2 & Tempo Stamina Plan,75,13632,1064
+55,Female,173.8,86.1,28.5,Weight Loss,4523,79,865,0.47,8.5,3.3,Metabolic Fat-Burn Foundation,50,8500,692
+54,Female,155.1,54.1,22.5,Muscle Gain,6737,26,354,0.95,6.9,2.4,Progressive Split Strength & Hypertrophy,50,7500,545
+24,Female,156.1,81.4,33.4,General Fitness,10123,48,646,0.99,7.9,3.7,Hybrid Cardio-Strength Wellness Plan,59,11423,735
+37,Male,190.6,102.1,28.1,Weight Loss,8603,56,751,0.21,7.0,3.4,Metabolic Fat-Burn Foundation,55,10803,738
+38,Male,159.2,62.6,24.7,Weight Loss,6611,51,676,0.29,8.8,3.5,Metabolic Fat-Burn Foundation,55,8811,698
+61,Female,165.7,51.9,18.9,Maintain Weight,6408,16,311,0.27,8.5,1.6,Balanced Functional & Mobility Routine,35,8500,450
+49,Male,170.6,89.1,30.6,Weight Loss,5921,16,299,0.23,5.5,1.6,Metabolic Fat-Burn Foundation,35,8500,502
+60,Female,151.6,48.7,21.2,Improve Endurance,6452,74,661,0.84,8.6,3.3,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+57,Female,172.6,52.7,17.7,Muscle Gain,4485,23,313,0.8,7.6,3.5,Progressive Split Strength & Hypertrophy,50,7500,545
+39,Male,160.2,52.4,20.4,Weight Loss,6259,21,385,0.69,5.7,2.9,Metabolic Fat-Burn Foundation,35,8500,502
+51,Male,171.0,86.0,29.4,Weight Loss,3678,40,384,0.98,7.0,3.3,Metabolic Fat-Burn Foundation,50,8500,692
+22,Male,174.6,59.4,19.5,Improve Endurance,6005,81,786,0.66,7.8,3.0,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+38,Female,165.1,70.6,25.9,Improve Endurance,7765,78,742,0.31,6.4,2.2,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+40,Female,164.7,76.2,28.1,Weight Loss,8035,25,387,0.67,6.5,1.6,HIIT & Resistance Conditioning,45,10000,627
+37,Male,187.5,73.5,20.9,General Fitness,4276,55,604,0.76,7.6,3.0,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+46,Male,169.3,76.2,26.6,Weight Loss,8075,52,624,0.61,7.9,3.5,HIIT & Resistance Conditioning,65,10000,817
+47,Male,171.5,76.8,26.1,Maintain Weight,6237,70,709,0.87,7.1,1.8,Balanced Functional & Mobility Routine,55,8500,610
+20,Male,180.7,58.8,18.0,Muscle Gain,9587,38,516,0.45,8.0,1.5,Full-Body Hypertrophy Builder,50,9907,588
+38,Female,150.0,52.9,23.5,Improve Endurance,4935,31,341,0.49,8.7,3.8,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+46,Male,167.5,81.4,29.0,General Fitness,11924,67,926,0.21,6.2,2.7,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+36,Male,166.5,87.6,31.6,Improve Endurance,5050,82,968,0.99,6.0,2.5,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+44,Female,173.6,91.0,30.2,Weight Loss,7636,48,535,0.34,8.5,1.6,Metabolic Fat-Burn Foundation,55,9836,719
+40,Female,167.1,71.5,25.6,Muscle Gain,14450,56,849,0.27,6.3,3.4,Full-Body Hypertrophy Builder,60,10000,672
+58,Female,160.6,74.0,28.7,General Fitness,10136,19,408,0.63,6.6,3.4,Hybrid Cardio-Strength Wellness Plan,40,10500,572
+33,Male,174.4,97.0,31.9,Weight Loss,8068,78,914,0.88,6.6,2.6,HIIT & Resistance Conditioning,65,10000,817
+57,Female,154.9,57.6,24.0,Maintain Weight,13565,59,769,0.47,6.1,1.6,Balanced Functional & Mobility Routine,50,10500,650
+47,Female,166.4,62.0,22.4,Maintain Weight,4809,56,486,0.42,7.8,3.0,Balanced Functional & Mobility Routine,55,8500,610
+51,Female,172.7,75.8,25.4,Maintain Weight,11804,60,879,0.97,8.1,3.5,Balanced Functional & Mobility Routine,50,10500,650
+60,Male,188.0,87.3,24.7,Weight Loss,10541,53,764,0.98,8.7,2.2,HIIT & Resistance Conditioning,50,10500,858
+56,Female,148.8,39.2,17.7,General Fitness,14084,49,887,0.57,8.7,2.4,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+21,Female,172.2,79.2,26.7,General Fitness,12263,33,643,0.23,6.7,1.6,Hybrid Cardio-Strength Wellness Plan,43,11500,599
+61,Male,173.9,89.2,29.5,General Fitness,4434,15,258,0.84,5.7,2.0,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+58,Male,168.5,48.6,17.1,Muscle Gain,10227,33,474,0.52,8.5,3.0,Full-Body Hypertrophy Builder,45,10000,549
+49,Male,152.7,53.9,23.1,Muscle Gain,12009,74,880,0.67,6.8,2.1,Progressive Split Strength & Hypertrophy,75,10000,795
+43,Female,153.1,43.4,18.5,Muscle Gain,8283,65,865,1.0,6.5,2.4,Progressive Split Strength & Hypertrophy,75,8668,771
+43,Male,176.9,108.0,34.5,General Fitness,11502,56,750,0.93,7.1,1.8,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+22,Male,163.2,54.6,20.5,General Fitness,3399,36,421,0.47,6.9,3.7,Hybrid Cardio-Strength Wellness Plan,46,9000,575
+39,Female,154.8,52.7,22.0,Improve Endurance,7117,77,759,0.46,8.5,2.7,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+64,Female,168.3,80.4,28.4,Weight Loss,12857,31,567,0.32,8.4,2.2,Metabolic Fat-Burn Foundation,45,10500,657
+20,Female,165.1,83.7,30.7,Weight Loss,12928,48,850,0.74,8.2,3.6,HIIT & Resistance Conditioning,60,13000,830
+30,Female,158.2,67.1,26.8,Muscle Gain,4351,44,583,0.61,6.9,1.6,Progressive Split Strength & Hypertrophy,54,7500,577
+48,Female,155.4,42.7,17.7,Muscle Gain,14045,55,821,0.61,6.5,1.6,Progressive Split Strength & Hypertrophy,65,10000,713
+21,Female,161.5,47.2,18.1,General Fitness,4461,46,473,0.52,6.9,1.5,Hybrid Cardio-Strength Wellness Plan,57,9000,670
+27,Male,163.7,45.6,17.0,Muscle Gain,4466,34,383,0.55,8.1,3.4,Progressive Split Strength & Hypertrophy,50,7500,545
+41,Female,171.0,62.0,21.2,Muscle Gain,13530,48,797,0.38,6.6,3.6,Full-Body Hypertrophy Builder,60,10000,672
+40,Male,163.0,78.4,29.5,Weight Loss,10020,18,378,0.94,5.5,1.9,HIIT & Resistance Conditioning,45,11520,657
+56,Male,159.0,70.5,27.9,Weight Loss,4204,54,599,0.88,5.5,3.5,Metabolic Fat-Burn Foundation,50,8500,692
+43,Female,166.1,84.1,30.5,Improve Endurance,6489,32,502,0.56,7.5,3.8,Aerobic Zone-2 & Tempo Stamina Plan,46,10500,700
+21,Male,164.6,61.2,22.6,General Fitness,12231,22,470,0.53,6.5,1.7,Hybrid Cardio-Strength Wellness Plan,40,11500,574
+46,Female,148.0,37.9,17.3,Muscle Gain,3537,61,679,0.79,6.5,3.5,Progressive Split Strength & Hypertrophy,71,7500,717
+52,Male,172.1,57.8,19.5,General Fitness,10773,63,727,0.61,8.8,1.5,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+61,Male,186.4,94.5,27.2,Weight Loss,9671,77,1047,0.63,7.6,2.1,HIIT & Resistance Conditioning,50,10500,840
+51,Male,162.0,58.3,22.2,Muscle Gain,10698,83,813,0.68,6.3,3.5,Progressive Split Strength & Hypertrophy,50,10000,795
+57,Female,155.2,64.3,26.7,Muscle Gain,9135,42,629,0.78,7.4,3.2,Progressive Split Strength & Hypertrophy,50,9478,597
+51,Female,159.4,66.1,26.0,Maintain Weight,3340,17,233,0.53,5.8,3.5,Balanced Functional & Mobility Routine,35,8500,450
+55,Female,164.0,52.7,19.6,Muscle Gain,7264,82,780,0.36,8.3,3.6,Full-Body Hypertrophy Builder,50,7700,630
+29,Male,155.1,71.7,29.8,Improve Endurance,10498,41,624,0.79,7.9,3.3,Aerobic Zone-2 & Tempo Stamina Plan,57,12298,851
+62,Female,153.0,76.8,32.8,Improve Endurance,12931,70,809,0.36,8.0,1.6,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,1073
+27,Female,162.3,78.0,29.6,Improve Endurance,10304,42,590,0.69,7.4,2.4,Aerobic Zone-2 & Tempo Stamina Plan,58,12104,857
+18,Female,159.1,63.8,25.2,Weight Loss,5423,38,449,0.3,6.0,3.1,Metabolic Fat-Burn Foundation,53,8500,673
+35,Male,177.3,67.0,21.3,Muscle Gain,5439,21,343,0.9,6.4,2.0,Progressive Split Strength & Hypertrophy,50,7500,545
+63,Male,168.7,71.7,25.2,General Fitness,6131,23,352,0.97,7.7,2.6,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+20,Female,161.9,58.2,22.2,Weight Loss,6733,68,878,0.92,8.7,3.8,HIIT & Resistance Conditioning,65,10000,817
+34,Female,153.3,45.6,19.4,Muscle Gain,5712,53,510,0.88,7.5,2.7,Progressive Split Strength & Hypertrophy,63,7500,651
+42,Male,172.3,58.8,19.8,Weight Loss,12826,41,722,0.44,6.7,2.4,Metabolic Fat-Burn Foundation,55,11500,752
+45,Male,170.8,60.1,20.6,Improve Endurance,10018,80,813,0.92,5.8,2.1,Aerobic Zone-2 & Tempo Stamina Plan,75,11818,1024
+26,Female,156.0,58.9,24.2,Weight Loss,8283,27,468,0.88,8.4,2.3,HIIT & Resistance Conditioning,45,10000,627
+29,Female,172.9,63.7,21.3,General Fitness,6546,26,442,0.91,8.1,2.7,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+31,Male,170.6,76.8,26.4,Maintain Weight,8110,40,485,0.96,7.1,3.7,Balanced Functional & Mobility Routine,47,9010,556
+24,Male,176.7,64.3,20.6,Weight Loss,5057,32,338,0.3,8.5,2.2,Metabolic Fat-Burn Foundation,46,8500,607
+61,Female,171.6,70.7,24.0,General Fitness,9210,61,898,0.85,7.9,2.6,Hybrid Cardio-Strength Wellness Plan,50,10500,726
+26,Female,165.8,63.2,23.0,Weight Loss,9518,18,382,0.84,7.6,3.2,HIIT & Resistance Conditioning,45,11018,647
+47,Female,174.9,101.6,33.2,Weight Loss,6445,59,545,0.99,6.4,1.6,Metabolic Fat-Burn Foundation,55,8645,695
+36,Male,172.3,58.5,19.7,Improve Endurance,10344,49,780,0.46,7.9,2.6,Aerobic Zone-2 & Tempo Stamina Plan,66,12144,940
+36,Male,160.7,65.3,25.3,Improve Endurance,10137,81,904,0.34,7.7,3.4,Aerobic Zone-2 & Tempo Stamina Plan,75,11937,1027
+45,Male,160.8,84.3,32.6,General Fitness,6338,84,905,0.73,6.5,3.7,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+51,Male,182.5,80.3,24.1,Maintain Weight,9548,25,458,0.93,6.9,3.0,Balanced Functional & Mobility Routine,35,10448,488
+51,Male,168.7,70.3,24.7,Muscle Gain,6121,23,312,0.73,7.7,3.0,Progressive Split Strength & Hypertrophy,50,7500,545
+32,Male,162.1,53.9,20.5,Weight Loss,11993,80,908,0.73,5.9,2.1,HIIT & Resistance Conditioning,65,13000,877
+58,Female,167.0,80.3,28.8,Improve Endurance,4766,66,709,0.76,8.6,2.9,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+27,Female,162.0,59.3,22.6,Muscle Gain,11313,83,971,0.75,5.6,2.4,Progressive Split Strength & Hypertrophy,75,10000,795
+50,Female,169.9,71.6,24.8,Weight Loss,13776,74,932,0.64,7.1,3.0,HIIT & Resistance Conditioning,50,10500,877
+58,Female,155.1,79.4,33.0,Improve Endurance,6975,37,577,0.8,8.0,3.3,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,761
+57,Male,161.0,55.0,21.2,General Fitness,10050,60,719,0.41,7.4,2.4,Hybrid Cardio-Strength Wellness Plan,50,10500,743
+31,Male,168.3,90.9,32.1,Weight Loss,7335,15,303,0.84,8.3,1.8,HIIT & Resistance Conditioning,45,10000,627
+50,Female,153.1,55.8,23.8,General Fitness,14484,35,613,0.54,7.5,3.6,Hybrid Cardio-Strength Wellness Plan,45,10500,617
+27,Male,174.0,58.7,19.4,General Fitness,14283,32,692,0.73,5.9,3.4,Hybrid Cardio-Strength Wellness Plan,42,11500,591
+30,Female,159.8,68.2,26.7,Weight Loss,5953,50,628,0.72,8.8,3.8,Metabolic Fat-Burn Foundation,55,8500,692
+19,Female,174.6,90.5,29.7,Improve Endurance,6821,37,487,0.54,5.7,3.0,Aerobic Zone-2 & Tempo Stamina Plan,52,10500,761
+53,Male,177.6,99.7,31.6,General Fitness,13782,44,694,0.8,8.1,2.6,Hybrid Cardio-Strength Wellness Plan,50,10500,703
+28,Female,162.8,85.9,32.4,Weight Loss,6882,25,394,0.25,5.7,1.5,Metabolic Fat-Burn Foundation,38,9082,542
+22,Male,170.1,50.9,17.6,General Fitness,11638,72,813,0.32,8.3,3.4,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+43,Female,156.5,45.6,18.6,Muscle Gain,9365,66,739,0.8,7.2,3.2,Progressive Split Strength & Hypertrophy,75,9696,789
+51,Male,153.4,48.9,20.8,Improve Endurance,5554,60,560,0.27,6.1,1.9,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+53,Male,173.5,103.3,34.3,Weight Loss,12501,84,1028,0.51,8.4,3.7,HIIT & Resistance Conditioning,50,10500,877
+48,Female,150.7,47.5,20.9,Maintain Weight,8546,60,681,0.79,7.4,2.8,Balanced Functional & Mobility Routine,55,9446,628
+36,Female,176.4,54.5,17.5,Muscle Gain,13719,57,838,0.41,6.9,3.2,Full-Body Hypertrophy Builder,60,10000,672
+22,Female,155.9,57.6,23.7,Improve Endurance,6258,24,346,0.65,7.7,1.7,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+42,Male,161.0,84.8,32.7,Weight Loss,3212,69,805,0.58,7.1,3.7,Metabolic Fat-Burn Foundation,55,8500,692
+26,Male,187.5,96.0,27.3,Weight Loss,3872,36,365,0.28,6.2,2.5,Metabolic Fat-Burn Foundation,51,8500,654
+49,Female,161.2,83.4,32.1,Weight Loss,5190,39,392,0.49,6.4,2.9,Metabolic Fat-Burn Foundation,54,8500,683
+34,Male,170.5,96.8,33.3,Weight Loss,5520,67,608,0.7,5.9,3.5,Metabolic Fat-Burn Foundation,55,8500,692
+23,Female,172.3,77.8,26.2,Improve Endurance,4818,84,683,0.52,6.6,3.7,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+22,Female,166.5,55.4,20.0,Maintain Weight,14258,37,679,0.98,6.8,2.4,Balanced Functional & Mobility Routine,43,10500,554
+41,Female,162.2,59.5,22.6,General Fitness,5650,28,336,0.89,7.4,2.3,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+49,Male,180.4,91.4,28.1,Improve Endurance,12263,80,967,0.46,7.0,2.8,Aerobic Zone-2 & Tempo Stamina Plan,75,14000,1073
+36,Male,174.4,81.2,26.7,Muscle Gain,6824,82,843,0.28,6.0,3.2,Full-Body Hypertrophy Builder,60,7500,627
+34,Female,168.4,76.0,26.8,Muscle Gain,11767,67,807,0.86,8.6,2.9,Progressive Split Strength & Hypertrophy,75,10000,795
+22,Female,174.3,101.8,33.5,Weight Loss,4374,79,828,0.2,5.6,3.1,Metabolic Fat-Burn Foundation,55,8500,692
+60,Female,160.3,77.1,30.0,Improve Endurance,5906,49,568,0.2,8.1,2.3,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,904
+59,Female,178.0,85.2,26.9,Weight Loss,6254,62,775,0.6,7.3,3.7,Metabolic Fat-Burn Foundation,50,8500,692
+25,Male,166.7,56.4,20.3,Maintain Weight,13721,56,928,0.5,5.8,3.4,Balanced Functional & Mobility Routine,55,10500,650
+41,Male,170.0,98.8,34.2,Weight Loss,13483,44,696,0.53,5.9,3.3,HIIT & Resistance Conditioning,56,13000,792
+28,Female,165.2,60.9,22.3,Improve Endurance,13079,19,494,0.57,7.8,1.9,Aerobic Zone-2 & Tempo Stamina Plan,45,14000,767
+19,Female,161.8,72.8,27.8,Weight Loss,10752,55,755,0.37,6.0,1.9,Metabolic Fat-Burn Foundation,55,11500,752
+39,Male,163.4,89.7,33.6,Weight Loss,7088,30,503,0.26,7.7,3.5,Metabolic Fat-Burn Foundation,44,9288,603
+56,Female,155.6,59.3,24.5,Improve Endurance,7318,17,334,0.99,8.7,1.6,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+27,Female,169.3,94.0,32.8,Weight Loss,6713,80,989,0.29,5.7,3.4,Metabolic Fat-Burn Foundation,55,8913,700
+62,Male,169.0,94.3,33.0,Weight Loss,11199,42,637,0.25,8.7,2.2,Metabolic Fat-Burn Foundation,50,10500,752
+55,Male,175.0,103.8,33.9,Weight Loss,10815,75,996,0.86,8.7,3.4,HIIT & Resistance Conditioning,50,10500,863
+35,Female,161.8,80.9,30.9,Weight Loss,7585,53,748,0.98,7.8,2.6,HIIT & Resistance Conditioning,65,10000,817
+39,Male,170.7,67.9,23.3,Weight Loss,7624,22,341,0.82,7.0,3.6,HIIT & Resistance Conditioning,45,10000,627
+22,Female,157.7,49.2,19.8,Improve Endurance,12922,29,638,0.37,7.2,3.7,Aerobic Zone-2 & Tempo Stamina Plan,45,14000,767
+58,Female,171.5,52.6,17.9,Muscle Gain,13741,19,483,0.65,8.5,2.7,Progressive Split Strength & Hypertrophy,50,10000,590
+49,Female,166.1,85.5,31.0,Weight Loss,10566,75,1071,0.48,5.8,2.0,Metabolic Fat-Burn Foundation,55,11500,752
+37,Male,179.8,76.3,23.6,Muscle Gain,11909,23,466,0.46,7.7,3.0,Full-Body Hypertrophy Builder,45,10000,549
+43,Male,179.4,95.3,29.6,Weight Loss,8112,65,680,0.29,7.1,2.7,Metabolic Fat-Burn Foundation,55,10312,728
+62,Male,168.5,97.7,34.4,Weight Loss,8942,50,643,0.25,7.5,2.0,Metabolic Fat-Burn Foundation,50,10500,745
+40,Female,164.3,92.3,34.2,Weight Loss,10404,49,683,0.25,8.2,3.0,Metabolic Fat-Burn Foundation,55,11500,752
+60,Female,173.7,85.1,28.2,Improve Endurance,12033,68,849,0.73,7.7,3.7,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,1069
+47,Female,165.7,85.7,31.2,Weight Loss,7391,18,339,0.37,8.0,1.8,Metabolic Fat-Burn Foundation,35,9591,524
+52,Male,171.9,88.9,30.1,Improve Endurance,5443,66,597,0.96,6.0,2.0,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+30,Male,176.5,100.9,32.4,General Fitness,6492,26,351,0.49,7.1,1.8,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+51,Male,167.1,53.6,19.2,Muscle Gain,6289,73,654,0.58,8.1,3.2,Progressive Split Strength & Hypertrophy,50,7500,750
+51,Male,162.5,82.9,31.4,Weight Loss,12410,38,587,0.57,6.8,2.1,HIIT & Resistance Conditioning,49,10500,725
+34,Female,178.0,69.1,21.8,Improve Endurance,7330,24,386,0.44,6.7,2.0,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+43,Female,156.3,62.8,25.7,Improve Endurance,10465,16,437,0.69,8.4,3.6,Aerobic Zone-2 & Tempo Stamina Plan,45,12265,728
+58,Female,170.6,53.6,18.4,Muscle Gain,12143,55,783,0.53,7.4,2.8,Full-Body Hypertrophy Builder,50,10000,672
+40,Female,178.1,66.3,20.9,Maintain Weight,5423,70,857,1.0,8.4,3.5,Balanced Functional & Mobility Routine,55,8500,610
+25,Male,173.9,65.6,21.7,Maintain Weight,10051,59,726,0.65,6.5,1.9,Balanced Functional & Mobility Routine,55,10500,650
+62,Male,166.2,92.8,33.6,Weight Loss,5405,19,316,0.35,6.1,3.4,Metabolic Fat-Burn Foundation,35,8500,502
+57,Female,158.9,49.2,19.5,Muscle Gain,6583,62,794,0.39,6.4,3.7,Full-Body Hypertrophy Builder,50,7500,627
+44,Male,177.8,77.8,24.6,Improve Endurance,6059,69,839,0.5,8.3,2.0,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+54,Female,170.2,99.7,34.4,Weight Loss,3248,29,337,0.85,5.8,2.4,Metabolic Fat-Burn Foundation,43,8500,578
+27,Male,153.2,47.6,20.3,Improve Endurance,5152,28,362,0.58,8.3,3.0,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+52,Female,165.0,65.9,24.2,Improve Endurance,7757,32,437,0.78,8.0,1.7,Aerobic Zone-2 & Tempo Stamina Plan,46,10500,700
+61,Male,160.6,52.1,20.2,General Fitness,7759,47,560,0.84,8.5,3.3,Hybrid Cardio-Strength Wellness Plan,50,9059,679
+47,Male,170.0,62.1,21.5,Muscle Gain,4725,16,251,0.38,8.3,2.4,Full-Body Hypertrophy Builder,45,7500,503
+62,Male,176.6,87.9,28.2,General Fitness,3596,26,366,0.88,8.3,2.0,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+27,Female,170.6,65.2,22.4,Weight Loss,4318,58,683,0.3,8.1,3.7,Metabolic Fat-Burn Foundation,55,8500,692
+22,Female,169.8,93.1,32.3,Weight Loss,14325,67,1041,0.8,6.4,1.8,HIIT & Resistance Conditioning,65,13000,877
+64,Male,172.4,76.7,25.8,General Fitness,9783,75,997,0.93,6.3,3.2,Hybrid Cardio-Strength Wellness Plan,50,10500,737
+36,Male,170.1,58.7,20.3,Improve Endurance,7007,70,932,0.78,8.5,3.8,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+36,Male,171.2,74.2,25.3,Weight Loss,14348,30,609,0.9,6.4,3.3,HIIT & Resistance Conditioning,45,13000,687
+22,Female,149.2,72.3,32.5,Weight Loss,7525,32,444,0.69,7.7,3.4,HIIT & Resistance Conditioning,45,10000,627
+54,Female,150.0,66.4,29.5,Weight Loss,3476,57,471,0.48,8.4,1.6,Metabolic Fat-Burn Foundation,50,8500,692
+41,Female,169.0,51.1,17.9,General Fitness,7679,52,732,0.8,8.4,2.0,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+30,Female,158.3,53.4,21.3,General Fitness,12189,31,510,0.97,7.8,3.0,Hybrid Cardio-Strength Wellness Plan,41,11500,582
+35,Female,163.9,68.0,25.3,Weight Loss,8279,19,347,0.91,8.2,2.3,HIIT & Resistance Conditioning,45,10000,627
+48,Female,161.1,88.2,34.0,Improve Endurance,9738,62,739,0.34,6.2,1.7,Aerobic Zone-2 & Tempo Stamina Plan,75,11538,1018
+61,Male,166.7,95.3,34.3,Weight Loss,4557,17,287,0.66,8.1,3.0,Metabolic Fat-Burn Foundation,35,8500,502
+24,Male,171.8,77.0,26.1,Maintain Weight,13808,64,890,0.48,7.0,1.9,Balanced Functional & Mobility Routine,55,10500,650
+37,Female,162.9,52.3,19.7,Improve Endurance,5983,70,708,0.75,8.3,1.7,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996
+57,Female,158.1,52.0,20.8,Improve Endurance,8312,63,875,0.44,7.4,2.2,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+33,Female,175.7,85.5,27.7,Weight Loss,13649,24,572,0.74,7.8,1.7,HIIT & Resistance Conditioning,45,13000,687
+53,Male,170.8,54.0,18.5,Muscle Gain,6936,45,616,0.39,8.2,2.8,Full-Body Hypertrophy Builder,50,7500,602
+19,Female,151.6,59.1,25.7,Weight Loss,10202,65,821,0.62,7.5,3.2,HIIT & Resistance Conditioning,65,11702,851
+61,Male,172.8,75.8,25.4,Weight Loss,9015,79,914,0.57,8.7,2.5,HIIT & Resistance Conditioning,50,10500,827
+45,Male,180.1,60.7,18.7,Muscle Gain,10501,45,710,0.79,5.6,2.8,Progressive Split Strength & Hypertrophy,55,10000,631
+63,Male,167.5,55.8,19.9,General Fitness,10281,28,519,0.53,8.0,2.0,Hybrid Cardio-Strength Wellness Plan,40,10500,574
+33,Male,172.0,89.3,30.2,General Fitness,13435,40,636,0.43,6.3,2.1,Hybrid Cardio-Strength Wellness Plan,51,11500,668
+64,Female,167.3,96.0,34.3,Weight Loss,9781,38,638,0.95,6.2,2.7,HIIT & Resistance Conditioning,49,10500,691
+48,Female,167.4,69.2,24.7,Maintain Weight,5929,83,1055,0.92,8.1,2.1,Balanced Functional & Mobility Routine,55,8500,610
+19,Male,175.3,82.4,26.8,Weight Loss,8912,55,681,0.8,6.6,2.3,HIIT & Resistance Conditioning,65,10412,825
+47,Female,169.0,91.1,31.9,Weight Loss,4637,18,294,0.64,5.6,2.2,Metabolic Fat-Burn Foundation,35,8500,502
+28,Male,173.9,65.9,21.8,Weight Loss,10965,19,402,0.67,5.6,3.5,HIIT & Resistance Conditioning,45,12465,676
+22,Male,160.8,64.1,24.8,Improve Endurance,8204,41,619,0.91,5.5,1.9,Aerobic Zone-2 & Tempo Stamina Plan,57,10500,812
+21,Female,159.0,49.6,19.6,Maintain Weight,13340,29,608,0.78,7.5,3.7,Balanced Functional & Mobility Routine,35,10500,490
+58,Male,177.8,80.3,25.4,Improve Endurance,7264,66,624,0.48,7.8,1.5,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+28,Male,174.1,84.0,27.7,General Fitness,8162,51,698,0.28,7.1,2.9,Hybrid Cardio-Strength Wellness Plan,60,9462,705
+56,Female,159.9,53.4,20.9,Muscle Gain,9699,46,627,0.34,8.2,3.6,Full-Body Hypertrophy Builder,50,10000,655
+38,Male,176.8,54.1,17.3,Maintain Weight,9057,81,757,0.81,8.7,3.6,Balanced Functional & Mobility Routine,55,9957,639
+28,Female,166.1,50.8,18.4,General Fitness,3882,57,625,0.53,7.4,1.9,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+49,Female,153.3,70.0,29.8,General Fitness,9119,48,650,0.45,8.7,3.2,Hybrid Cardio-Strength Wellness Plan,59,10419,715
+19,Male,177.9,65.8,20.8,Improve Endurance,8442,56,760,0.37,8.3,2.4,Aerobic Zone-2 & Tempo Stamina Plan,74,10500,985
+62,Male,166.6,77.2,27.8,Improve Endurance,12824,23,541,0.99,6.0,1.7,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,767
+30,Female,154.7,43.6,18.2,Muscle Gain,10818,67,791,0.47,8.3,2.7,Full-Body Hypertrophy Builder,60,10000,672
+53,Male,179.3,108.3,33.7,General Fitness,12722,28,611,0.59,6.0,1.9,Hybrid Cardio-Strength Wellness Plan,40,10500,574
+23,Male,175.9,68.1,22.0,Improve Endurance,8338,24,412,0.53,7.2,2.1,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+38,Male,185.6,81.0,23.5,Muscle Gain,10560,68,710,0.4,7.0,2.4,Full-Body Hypertrophy Builder,60,10000,672
+23,Female,162.2,69.2,26.3,Maintain Weight,5519,56,507,0.61,6.6,2.5,Balanced Functional & Mobility Routine,55,8500,610
+52,Male,175.1,102.7,33.5,Weight Loss,14272,57,923,0.43,8.1,3.0,Metabolic Fat-Burn Foundation,50,10500,752
+30,Female,179.7,57.2,17.7,Muscle Gain,14046,53,730,0.47,8.8,1.5,Full-Body Hypertrophy Builder,60,10000,672
+21,Male,181.5,74.8,22.7,Weight Loss,8621,25,431,0.3,5.7,3.7,Metabolic Fat-Burn Foundation,38,10821,577
+63,Female,161.8,48.7,18.6,Muscle Gain,6203,15,286,0.98,6.4,2.7,Progressive Split Strength & Hypertrophy,50,7500,545
+61,Female,150.2,49.4,21.9,Maintain Weight,7872,74,807,0.62,8.7,1.9,Balanced Functional & Mobility Routine,50,8772,615
+51,Male,168.8,68.1,23.9,General Fitness,5462,65,612,0.74,6.4,2.3,Hybrid Cardio-Strength Wellness Plan,50,9000,696
+49,Male,187.3,88.4,25.2,Muscle Gain,10579,40,677,0.66,6.2,3.6,Progressive Split Strength & Hypertrophy,50,10000,590
+38,Male,178.1,81.5,25.7,General Fitness,4600,81,913,0.3,8.2,3.7,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+29,Male,167.2,82.5,29.5,Improve Endurance,10053,49,605,0.62,7.3,1.9,Aerobic Zone-2 & Tempo Stamina Plan,66,11853,933
+34,Male,171.7,97.9,33.2,Weight Loss,10128,33,483,0.39,6.4,1.6,Metabolic Fat-Burn Foundation,47,11500,676
+19,Male,161.7,61.7,23.6,Muscle Gain,7925,41,527,0.46,5.8,1.6,Full-Body Hypertrophy Builder,53,8328,584
+28,Male,173.3,103.0,34.3,Improve Endurance,3707,50,537,0.45,8.1,3.3,Aerobic Zone-2 & Tempo Stamina Plan,67,10500,914
+52,Female,163.1,65.4,24.6,Weight Loss,11865,64,801,0.94,5.8,3.8,HIIT & Resistance Conditioning,50,10500,877
+55,Male,158.3,71.4,28.5,Weight Loss,11902,61,913,0.68,8.3,1.7,HIIT & Resistance Conditioning,50,10500,877
+54,Female,165.1,48.2,17.7,Muscle Gain,6317,47,546,0.54,8.4,2.1,Full-Body Hypertrophy Builder,50,7500,618
+30,Female,168.2,64.2,22.7,Maintain Weight,11566,50,708,0.41,7.2,1.8,Balanced Functional & Mobility Routine,55,10500,650
+54,Male,167.8,68.1,24.2,General Fitness,12510,82,1203,0.83,8.7,3.4,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+30,Male,174.0,60.6,20.0,Weight Loss,5762,72,801,0.41,8.6,1.8,Metabolic Fat-Burn Foundation,55,8500,692
+34,Female,156.2,43.9,18.0,Muscle Gain,5241,72,620,0.61,6.4,3.0,Progressive Split Strength & Hypertrophy,75,7500,750
+35,Male,163.4,87.3,32.7,Weight Loss,6145,37,491,0.77,7.0,1.9,Metabolic Fat-Burn Foundation,52,8500,664
+51,Male,182.4,84.5,25.4,Improve Endurance,13622,79,894,0.94,8.6,2.2,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,1073
+22,Male,163.4,64.9,24.3,Muscle Gain,6677,28,462,0.4,7.8,1.7,Full-Body Hypertrophy Builder,45,7500,503
+45,Male,169.0,65.4,22.9,General Fitness,10606,46,760,0.8,8.4,1.8,Hybrid Cardio-Strength Wellness Plan,57,11500,720
+22,Female,178.1,83.7,26.4,Muscle Gain,8481,35,449,0.5,6.3,2.4,Full-Body Hypertrophy Builder,47,8856,544
+26,Male,170.6,81.5,28.0,Weight Loss,5962,39,496,0.82,6.8,2.9,Metabolic Fat-Burn Foundation,54,8500,683
+30,Female,159.6,83.8,32.9,General Fitness,7173,19,339,0.76,8.8,2.6,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+18,Male,165.1,52.3,19.2,General Fitness,3536,50,576,0.9,7.6,2.9,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+38,Female,155.6,78.0,32.2,Weight Loss,4319,53,504,0.89,7.6,2.5,Metabolic Fat-Burn Foundation,55,8500,692
+18,Male,161.7,76.6,29.3,Weight Loss,11015,21,495,0.81,6.2,2.2,HIIT & Resistance Conditioning,45,12515,677
+27,Female,155.6,67.1,27.7,Weight Loss,10053,35,485,0.78,5.6,1.5,HIIT & Resistance Conditioning,46,11553,668
+62,Female,153.7,71.3,30.2,Weight Loss,5913,49,562,0.46,7.2,2.5,Metabolic Fat-Burn Foundation,50,8500,692
+31,Female,166.4,95.3,34.4,Weight Loss,7631,41,490,0.48,6.4,1.9,Metabolic Fat-Burn Foundation,55,9831,719
+22,Female,148.0,72.5,33.1,Weight Loss,13968,19,507,0.26,6.4,3.8,Metabolic Fat-Burn Foundation,35,11500,562
+33,Male,187.1,94.5,27.0,Weight Loss,12603,55,765,0.86,6.0,2.5,HIIT & Resistance Conditioning,65,13000,877
+22,Female,167.6,66.0,23.5,General Fitness,9615,60,676,0.26,7.9,2.2,Hybrid Cardio-Strength Wellness Plan,60,10915,734
+21,Male,179.4,103.3,32.1,General Fitness,11378,20,416,0.25,8.3,2.0,Hybrid Cardio-Strength Wellness Plan,40,11500,574
+22,Male,175.0,94.6,30.9,Weight Loss,9395,16,410,0.32,8.2,1.6,Metabolic Fat-Burn Foundation,35,11500,562
+41,Male,172.4,85.0,28.6,General Fitness,8597,68,785,0.49,7.2,2.6,Hybrid Cardio-Strength Wellness Plan,60,9897,713
+30,Male,181.1,70.2,21.4,Muscle Gain,12973,40,611,0.9,7.5,1.8,Progressive Split Strength & Hypertrophy,50,10000,590
+39,Female,154.8,50.8,21.2,General Fitness,4901,54,485,0.81,8.8,1.6,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+18,Male,178.8,87.6,27.4,General Fitness,11653,74,775,0.68,8.8,2.1,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+34,Male,184.0,90.4,26.7,Weight Loss,10113,56,816,0.8,8.4,3.4,HIIT & Resistance Conditioning,65,11613,849
+27,Male,173.2,66.6,22.2,Maintain Weight,6926,52,670,0.98,6.9,2.7,Balanced Functional & Mobility Routine,55,8500,610
+61,Female,173.8,63.7,21.1,General Fitness,14236,51,702,0.95,5.9,2.0,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+53,Female,174.7,100.1,32.8,General Fitness,4398,19,292,0.71,8.0,3.4,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+59,Female,149.7,50.6,22.6,Maintain Weight,11079,28,533,0.73,6.9,3.2,Balanced Functional & Mobility Routine,35,10500,490
+62,Male,177.6,64.7,20.5,Maintain Weight,11009,52,725,0.66,5.7,2.4,Balanced Functional & Mobility Routine,50,10500,650
+57,Female,166.7,79.2,28.5,General Fitness,5338,59,726,0.7,7.3,2.9,Hybrid Cardio-Strength Wellness Plan,50,9000,696
+54,Male,174.3,79.6,26.2,Maintain Weight,13064,53,692,0.67,6.2,3.2,Balanced Functional & Mobility Routine,50,10500,650
+49,Female,172.9,81.6,27.3,Weight Loss,12550,65,989,0.78,7.2,2.3,HIIT & Resistance Conditioning,65,13000,877
+38,Male,172.8,60.9,20.4,Weight Loss,5014,41,566,0.6,6.3,1.7,Metabolic Fat-Burn Foundation,55,8500,692
+28,Male,163.9,63.7,23.7,Maintain Weight,11929,71,795,0.69,8.7,2.4,Balanced Functional & Mobility Routine,55,10500,650
+55,Male,171.0,95.0,32.5,Weight Loss,3775,84,720,0.86,7.1,1.6,Metabolic Fat-Burn Foundation,50,8500,692
+43,Female,168.2,89.1,31.5,Weight Loss,10918,74,1067,0.95,7.3,3.0,HIIT & Resistance Conditioning,65,12418,865
+20,Female,157.2,47.2,19.1,Muscle Gain,8427,64,867,0.32,6.2,2.8,Full-Body Hypertrophy Builder,60,8805,650
+28,Female,158.5,67.6,26.9,Muscle Gain,12331,40,680,0.93,6.0,3.6,Progressive Split Strength & Hypertrophy,50,10000,590
+20,Female,154.7,67.0,28.0,Weight Loss,10165,59,820,0.21,8.7,2.8,Metabolic Fat-Burn Foundation,55,11500,752
+26,Female,161.7,45.0,17.2,Muscle Gain,6773,50,592,0.47,6.3,2.7,Full-Body Hypertrophy Builder,60,7500,627
+59,Male,178.5,63.7,20.0,Improve Endurance,6812,80,885,0.6,7.6,3.7,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,996
+31,Male,181.9,57.6,17.4,Muscle Gain,6422,32,373,0.69,7.7,3.2,Progressive Split Strength & Hypertrophy,50,7500,545
+39,Male,179.2,76.7,23.9,General Fitness,8584,17,332,0.72,8.8,1.5,Hybrid Cardio-Strength Wellness Plan,40,9884,541
+48,Female,162.1,82.8,31.5,Weight Loss,4991,58,683,0.89,5.9,3.6,Metabolic Fat-Burn Foundation,55,8500,692
+35,Male,157.6,45.5,18.3,Muscle Gain,7186,15,307,0.47,6.0,2.5,Full-Body Hypertrophy Builder,45,7626,506
+22,Male,174.0,98.7,32.6,General Fitness,12952,23,503,0.93,5.8,2.4,Hybrid Cardio-Strength Wellness Plan,40,11500,574
+62,Female,165.8,66.5,24.2,Maintain Weight,10741,51,772,0.23,6.0,2.9,Balanced Functional & Mobility Routine,50,10500,650
+39,Female,166.0,63.7,23.1,Muscle Gain,6620,77,949,0.59,8.1,2.1,Progressive Split Strength & Hypertrophy,75,7500,750
+24,Male,178.7,102.5,32.1,General Fitness,13527,78,1153,0.97,6.3,3.6,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+60,Female,163.6,71.7,26.8,Muscle Gain,7071,19,320,0.27,7.1,3.5,Full-Body Hypertrophy Builder,45,7517,504
+31,Female,165.1,66.8,24.5,Improve Endurance,5929,47,497,0.86,6.2,3.1,Aerobic Zone-2 & Tempo Stamina Plan,64,10500,883
+56,Female,164.7,87.1,32.1,Weight Loss,12561,76,1057,0.84,7.7,3.4,HIIT & Resistance Conditioning,50,10500,877
+21,Female,165.8,85.8,31.2,General Fitness,3959,46,589,0.52,7.4,1.7,Hybrid Cardio-Strength Wellness Plan,57,9000,670
+53,Male,183.3,80.3,23.9,Maintain Weight,7653,54,661,0.84,8.5,1.7,Balanced Functional & Mobility Routine,50,8553,611
+29,Female,148.7,61.2,27.7,Weight Loss,9695,34,535,0.67,7.2,2.6,HIIT & Resistance Conditioning,45,11195,651
+36,Female,175.3,70.7,23.0,Maintain Weight,10593,71,999,0.32,7.4,2.2,Balanced Functional & Mobility Routine,55,10500,650
+54,Female,173.7,86.6,28.7,Weight Loss,8691,50,755,0.51,8.4,3.8,HIIT & Resistance Conditioning,50,10191,802
+41,Female,167.5,87.8,31.3,Weight Loss,13864,42,784,0.75,7.3,2.4,HIIT & Resistance Conditioning,54,13000,773
+52,Female,154.3,60.0,25.2,General Fitness,13285,36,593,0.71,8.7,2.1,Hybrid Cardio-Strength Wellness Plan,46,10500,625
+28,Male,173.3,96.4,32.1,Weight Loss,6021,38,566,0.21,7.3,2.7,Metabolic Fat-Burn Foundation,53,8500,673
+41,Female,153.9,57.3,24.2,Maintain Weight,8040,26,456,0.83,6.0,2.4,Balanced Functional & Mobility Routine,35,8940,458
+42,Female,161.8,58.1,22.2,Weight Loss,9471,17,368,0.57,6.1,2.7,HIIT & Resistance Conditioning,45,10971,646
+33,Male,176.1,57.7,18.6,General Fitness,11185,52,796,0.49,8.1,2.0,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+26,Female,148.0,38.6,17.6,Muscle Gain,5309,17,307,0.26,8.4,3.3,Full-Body Hypertrophy Builder,45,7500,503
+52,Female,169.6,82.8,28.8,Weight Loss,13027,45,804,0.28,6.5,1.7,Metabolic Fat-Burn Foundation,50,10500,752
+48,Female,163.7,77.2,28.8,General Fitness,13876,72,867,0.84,8.4,1.6,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+64,Male,162.9,75.4,28.4,Weight Loss,11721,22,449,0.29,5.8,3.0,Metabolic Fat-Burn Foundation,35,10500,562
+30,Male,158.1,72.7,29.1,General Fitness,7170,64,864,0.51,8.3,1.7,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+43,Male,161.6,83.0,31.8,Weight Loss,11560,51,701,0.74,8.0,3.8,HIIT & Resistance Conditioning,64,13000,868
+47,Male,165.2,74.8,27.4,Weight Loss,8764,34,490,0.78,6.1,1.9,HIIT & Resistance Conditioning,45,10264,632
+29,Male,178.0,56.1,17.7,Muscle Gain,3708,48,465,0.68,6.9,3.6,Progressive Split Strength & Hypertrophy,58,7500,610
+44,Female,168.0,50.5,17.9,Maintain Weight,6452,83,976,0.57,6.2,3.4,Balanced Functional & Mobility Routine,55,8500,610
+64,Female,176.0,77.1,24.9,Improve Endurance,9376,47,714,0.75,7.6,3.0,Aerobic Zone-2 & Tempo Stamina Plan,50,10500,898
+41,Male,193.1,66.4,17.8,General Fitness,7502,45,568,0.4,6.2,2.9,Hybrid Cardio-Strength Wellness Plan,56,9000,661
+59,Male,175.1,93.2,30.4,Weight Loss,10239,41,602,0.85,6.6,3.2,HIIT & Resistance Conditioning,50,10500,738
+30,Female,157.9,61.3,24.6,Weight Loss,11650,15,416,0.62,6.5,1.7,HIIT & Resistance Conditioning,45,13000,687
+39,Male,179.8,78.2,24.2,General Fitness,10560,53,830,0.23,7.6,2.6,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+18,Male,161.0,53.9,20.8,Weight Loss,6302,25,379,0.2,6.0,1.7,Metabolic Fat-Burn Foundation,38,8502,531
+36,Male,178.0,84.3,26.6,General Fitness,6939,30,371,0.95,5.9,1.8,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+27,Male,186.7,96.9,27.8,Weight Loss,9348,84,813,0.98,6.2,2.9,HIIT & Resistance Conditioning,65,10848,834
+44,Male,171.1,97.5,33.3,Weight Loss,8031,84,890,0.72,8.7,1.6,HIIT & Resistance Conditioning,65,10000,817
+37,Female,156.7,71.9,29.3,Weight Loss,9039,52,721,0.56,6.0,2.1,HIIT & Resistance Conditioning,65,10539,828
+29,Female,163.9,79.0,29.4,Improve Endurance,9467,15,345,0.74,5.7,2.9,Aerobic Zone-2 & Tempo Stamina Plan,45,11267,706
+30,Female,155.7,56.7,23.4,Muscle Gain,11079,51,656,0.65,8.4,3.0,Progressive Split Strength & Hypertrophy,61,10000,680
+45,Female,156.6,45.4,18.5,Muscle Gain,8531,60,869,0.38,8.2,1.9,Full-Body Hypertrophy Builder,60,8904,652
+18,Female,164.4,61.4,22.7,Muscle Gain,9286,70,988,0.9,6.0,3.3,Progressive Split Strength & Hypertrophy,75,9621,788
+26,Male,168.8,74.4,26.1,Weight Loss,7001,63,587,0.4,8.5,3.3,Metabolic Fat-Burn Foundation,55,9201,706
+25,Female,152.3,63.6,27.4,Weight Loss,14158,79,981,0.43,7.4,1.9,Metabolic Fat-Burn Foundation,55,11500,752
+43,Male,168.7,54.6,19.2,Maintain Weight,8501,80,1027,0.72,7.8,3.1,Balanced Functional & Mobility Routine,55,9401,628
+41,Female,148.0,48.0,21.9,Maintain Weight,11604,21,483,0.25,6.3,1.6,Balanced Functional & Mobility Routine,35,10500,490
+63,Female,163.8,74.3,27.7,General Fitness,13687,72,910,0.64,7.4,2.6,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+56,Female,156.0,83.0,34.1,Weight Loss,10196,73,924,0.4,8.0,1.7,Metabolic Fat-Burn Foundation,50,10500,752
+36,Female,156.0,46.0,18.9,Muscle Gain,11767,67,817,0.91,8.0,3.1,Progressive Split Strength & Hypertrophy,75,10000,795
+42,Male,177.8,106.2,33.6,Weight Loss,9779,37,524,0.51,7.9,2.6,HIIT & Resistance Conditioning,48,11279,681
+23,Female,166.2,53.9,19.5,Muscle Gain,6216,74,837,0.5,8.1,1.6,Full-Body Hypertrophy Builder,60,7500,627
+58,Male,159.2,86.7,34.2,General Fitness,6068,65,575,0.35,7.6,2.4,Hybrid Cardio-Strength Wellness Plan,50,9000,696
+47,Male,173.0,74.2,24.8,Maintain Weight,7596,67,919,0.57,7.6,3.6,Balanced Functional & Mobility Routine,55,8500,610
+55,Male,171.3,54.9,18.7,Muscle Gain,3488,69,726,0.6,7.5,1.8,Progressive Split Strength & Hypertrophy,50,7500,750
+57,Male,173.8,83.1,27.5,Weight Loss,4767,32,454,0.5,7.0,2.4,Metabolic Fat-Burn Foundation,46,8500,607
+48,Male,190.6,90.1,24.8,Muscle Gain,3383,52,613,0.78,8.4,3.6,Progressive Split Strength & Hypertrophy,62,7500,643
+63,Female,148.0,60.7,27.7,Weight Loss,7013,31,392,0.73,8.1,3.3,HIIT & Resistance Conditioning,45,10000,627
+28,Female,157.5,61.8,24.9,Muscle Gain,11625,53,854,0.9,8.5,3.5,Progressive Split Strength & Hypertrophy,63,10000,696
+36,Female,174.0,53.9,17.8,Muscle Gain,6830,42,492,0.34,8.6,1.9,Full-Body Hypertrophy Builder,54,7500,577
+20,Female,164.2,76.0,28.2,General Fitness,9750,38,601,0.35,8.6,2.2,Hybrid Cardio-Strength Wellness Plan,48,11050,633
+50,Male,165.3,77.9,28.5,Weight Loss,8570,59,640,0.74,6.4,2.1,HIIT & Resistance Conditioning,50,10070,818
+48,Male,176.2,70.8,22.8,Improve Endurance,8332,19,348,0.63,5.9,3.1,Aerobic Zone-2 & Tempo Stamina Plan,45,10500,690
+26,Female,158.5,82.4,32.8,Weight Loss,13866,63,960,0.81,8.3,1.6,HIIT & Resistance Conditioning,65,13000,877
+20,Male,172.0,66.0,22.3,Improve Endurance,9925,27,544,0.25,8.2,3.0,Aerobic Zone-2 & Tempo Stamina Plan,45,11725,716
+19,Female,168.2,90.5,32.0,Weight Loss,7004,15,313,0.48,5.9,1.9,Metabolic Fat-Burn Foundation,35,9204,516
+40,Male,173.8,54.4,18.0,Maintain Weight,8463,36,604,0.97,6.0,3.1,Balanced Functional & Mobility Routine,42,9363,523
+21,Female,156.7,45.9,18.7,Muscle Gain,9310,20,417,0.99,7.7,3.1,Progressive Split Strength & Hypertrophy,50,9644,583
+44,Female,153.9,41.9,17.7,Maintain Weight,11540,40,549,0.61,8.6,2.1,Balanced Functional & Mobility Routine,47,10500,586
+56,Male,165.5,49.3,18.0,Muscle Gain,13814,65,1020,0.31,6.5,1.9,Full-Body Hypertrophy Builder,50,10000,672
+46,Male,165.4,79.9,29.2,Weight Loss,11787,42,672,0.28,6.0,3.6,Metabolic Fat-Burn Foundation,55,11500,752
+43,Female,165.3,90.2,33.0,Weight Loss,9132,79,889,0.2,5.7,1.8,Metabolic Fat-Burn Foundation,55,11332,749
+64,Male,182.1,97.2,29.3,General Fitness,14220,56,756,0.8,6.7,1.5,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+56,Male,168.8,62.1,21.8,General Fitness,12374,17,473,0.31,8.2,3.1,Hybrid Cardio-Strength Wellness Plan,40,10500,574
+53,Male,170.9,74.5,25.5,Weight Loss,5099,45,442,0.61,5.8,1.9,Metabolic Fat-Burn Foundation,50,8500,692
+18,Male,176.4,68.5,22.0,Muscle Gain,7213,65,865,0.65,8.5,2.2,Progressive Split Strength & Hypertrophy,75,7652,752
+33,Male,180.5,74.9,23.0,Weight Loss,6383,71,902,0.58,8.7,2.8,Metabolic Fat-Burn Foundation,55,8583,694
+37,Male,177.0,55.5,17.7,General Fitness,4192,22,278,0.65,5.6,1.7,Hybrid Cardio-Strength Wellness Plan,40,9000,524
+25,Female,156.2,61.7,25.3,Maintain Weight,7027,19,315,0.81,8.6,1.8,Balanced Functional & Mobility Routine,35,8500,450
+28,Female,151.6,64.8,28.2,General Fitness,14044,54,901,0.59,7.3,2.2,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+51,Female,159.3,44.7,17.6,Muscle Gain,4389,22,271,0.71,7.6,2.5,Progressive Split Strength & Hypertrophy,50,7500,545
+22,Male,180.1,75.3,23.2,Weight Loss,10207,65,847,0.59,7.1,3.7,HIIT & Resistance Conditioning,65,11707,851
+35,Female,148.7,56.2,25.4,Weight Loss,3499,24,277,0.4,8.8,3.2,Metabolic Fat-Burn Foundation,37,8500,521
+62,Male,160.4,44.8,17.4,Muscle Gain,3735,37,489,0.95,7.3,2.9,Progressive Split Strength & Hypertrophy,50,7500,545
+21,Male,179.3,96.1,29.9,Weight Loss,6498,21,328,0.21,6.9,3.1,Metabolic Fat-Burn Foundation,35,8698,506
+22,Male,161.2,82.6,31.8,Weight Loss,12255,21,490,0.38,8.6,2.1,Metabolic Fat-Burn Foundation,35,11500,562
+57,Female,156.8,57.5,23.4,Weight Loss,5317,39,478,0.91,6.5,2.7,Metabolic Fat-Burn Foundation,50,8500,683
+26,Male,168.1,56.0,19.8,Weight Loss,4369,63,709,0.84,7.4,3.3,Metabolic Fat-Burn Foundation,55,8500,692
+41,Male,169.0,54.3,19.0,Muscle Gain,7637,16,330,0.49,7.3,2.6,Full-Body Hypertrophy Builder,45,8055,513
+33,Female,157.5,56.1,22.6,Improve Endurance,5215,39,486,0.68,6.5,2.3,Aerobic Zone-2 & Tempo Stamina Plan,54,10500,781
+45,Female,160.3,49.9,19.4,Muscle Gain,3226,77,593,0.88,6.0,2.7,Progressive Split Strength & Hypertrophy,75,7500,750
+52,Male,173.2,99.0,33.0,Weight Loss,6557,81,794,0.89,8.5,2.8,HIIT & Resistance Conditioning,50,10000,817
+42,Male,163.9,71.5,26.6,Maintain Weight,13873,51,739,0.31,7.8,3.7,Balanced Functional & Mobility Routine,55,10500,650
+38,Female,156.6,81.4,33.2,Weight Loss,3520,66,722,0.72,5.7,3.4,Metabolic Fat-Burn Foundation,55,8500,692
+23,Male,176.7,101.2,32.4,General Fitness,9114,43,556,0.6,5.8,3.0,Hybrid Cardio-Strength Wellness Plan,54,10414,672
+42,Female,159.7,45.9,18.0,Muscle Gain,4713,58,656,0.83,5.7,3.5,Progressive Split Strength & Hypertrophy,68,7500,692
+28,Male,160.3,73.2,28.5,Weight Loss,12926,39,669,0.27,8.4,3.6,Metabolic Fat-Burn Foundation,54,11500,743
+25,Male,165.6,73.5,26.8,Maintain Weight,13385,83,966,0.26,7.4,2.3,Balanced Functional & Mobility Routine,55,10500,650
+38,Male,171.6,80.7,27.4,Weight Loss,11806,28,482,0.49,8.4,2.3,Metabolic Fat-Burn Foundation,42,11500,629
+18,Female,163.0,60.3,22.7,Maintain Weight,12484,17,465,0.2,5.6,3.8,Balanced Functional & Mobility Routine,35,10500,490
+50,Female,154.3,78.1,32.8,Weight Loss,12039,20,471,0.83,5.5,2.2,HIIT & Resistance Conditioning,45,10500,687
+55,Female,158.0,69.4,27.8,Weight Loss,11689,48,813,0.55,7.0,2.8,HIIT & Resistance Conditioning,50,10500,830
+32,Male,164.8,66.8,24.6,General Fitness,12315,72,1070,0.95,7.4,2.5,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+33,Female,149.9,60.4,26.9,General Fitness,11109,28,544,0.8,6.2,2.6,Hybrid Cardio-Strength Wellness Plan,40,11500,574
+53,Male,171.7,94.3,32.0,Weight Loss,9847,40,653,0.77,8.0,2.4,HIIT & Resistance Conditioning,50,10500,720
+24,Male,173.1,80.9,27.0,Weight Loss,12852,57,876,0.65,7.1,3.4,HIIT & Resistance Conditioning,65,13000,877
+48,Female,166.2,93.4,33.8,General Fitness,10899,23,522,0.94,8.0,2.9,Hybrid Cardio-Strength Wellness Plan,40,11500,574
+64,Female,156.8,74.7,30.4,Weight Loss,5145,57,527,0.5,7.2,2.5,Metabolic Fat-Burn Foundation,50,8500,692
+58,Female,159.4,80.5,31.7,Weight Loss,4427,48,426,0.58,6.0,3.1,Metabolic Fat-Burn Foundation,50,8500,692
+20,Male,183.7,92.5,27.4,Weight Loss,12187,31,630,0.64,8.4,2.0,HIIT & Resistance Conditioning,45,13000,687
+32,Male,161.0,65.8,25.4,Muscle Gain,14216,84,944,0.88,8.4,2.8,Progressive Split Strength & Hypertrophy,75,10000,795
+31,Male,169.6,63.6,22.1,Weight Loss,12229,80,1159,0.7,7.2,3.1,HIIT & Resistance Conditioning,65,13000,877
+41,Female,158.0,50.4,20.2,General Fitness,6514,83,1005,0.89,7.1,3.4,Hybrid Cardio-Strength Wellness Plan,60,9000,696
+28,Male,172.7,58.2,19.5,Muscle Gain,6669,77,778,0.51,8.2,2.1,Full-Body Hypertrophy Builder,60,7500,627
+38,Female,170.6,88.5,30.4,General Fitness,11621,58,856,0.93,8.1,2.4,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+36,Male,170.6,64.3,22.1,General Fitness,8233,71,772,0.84,5.8,1.6,Hybrid Cardio-Strength Wellness Plan,60,9533,706
+40,Female,164.9,67.2,24.7,Improve Endurance,6441,33,449,0.38,8.6,1.5,Aerobic Zone-2 & Tempo Stamina Plan,47,10500,710
+24,Female,149.3,45.7,20.5,Weight Loss,6046,30,434,0.46,7.5,3.5,Metabolic Fat-Burn Foundation,44,8500,588
+61,Female,160.5,60.3,23.4,Muscle Gain,5005,73,916,0.7,6.4,2.5,Progressive Split Strength & Hypertrophy,50,7500,750
+33,Male,173.4,80.6,26.8,Maintain Weight,11964,76,1023,0.71,6.1,1.7,Balanced Functional & Mobility Routine,55,10500,650
+53,Female,155.9,59.1,24.3,General Fitness,9855,36,613,0.37,8.2,2.7,Hybrid Cardio-Strength Wellness Plan,46,10500,618
+20,Female,165.3,85.5,31.3,Weight Loss,6325,45,603,0.48,6.8,2.1,Metabolic Fat-Burn Foundation,55,8525,693
+20,Male,177.7,65.4,20.7,Maintain Weight,13491,36,604,0.45,5.8,1.9,Balanced Functional & Mobility Routine,42,10500,546
+59,Male,171.6,53.0,18.0,Muscle Gain,13530,78,1157,0.74,6.3,2.5,Progressive Split Strength & Hypertrophy,50,10000,795
+33,Male,172.6,70.3,23.6,Weight Loss,9706,76,945,0.44,6.6,3.3,Metabolic Fat-Burn Foundation,55,11500,752
+34,Female,172.8,80.6,27.0,Weight Loss,13124,76,1074,0.34,6.9,2.6,Metabolic Fat-Burn Foundation,55,11500,752
+20,Male,179.7,74.6,23.1,Weight Loss,7384,81,935,0.51,5.6,2.9,HIIT & Resistance Conditioning,65,10000,817
+47,Male,178.3,96.0,30.2,Weight Loss,6402,35,395,0.22,6.9,3.5,Metabolic Fat-Burn Foundation,50,8602,647
+22,Male,178.9,92.8,29.0,Weight Loss,4113,25,302,0.74,6.9,3.2,Metabolic Fat-Burn Foundation,38,8500,531
+51,Female,161.5,89.7,34.4,General Fitness,13241,74,1089,0.78,8.1,3.6,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+45,Male,171.0,76.0,26.0,Improve Endurance,12816,25,575,0.84,8.7,2.1,Aerobic Zone-2 & Tempo Stamina Plan,45,14000,767
+38,Female,161.3,86.9,33.4,Improve Endurance,11218,46,699,0.33,8.7,2.1,Aerobic Zone-2 & Tempo Stamina Plan,62,13018,918
+44,Male,174.1,74.9,24.7,Improve Endurance,10492,29,475,0.89,7.2,1.7,Aerobic Zone-2 & Tempo Stamina Plan,45,12292,729
+23,Female,162.0,84.8,32.3,Weight Loss,9753,29,443,0.61,7.0,3.2,HIIT & Resistance Conditioning,45,11253,652
+47,Male,158.1,54.0,21.6,Muscle Gain,6343,15,267,0.99,6.6,1.7,Progressive Split Strength & Hypertrophy,50,7500,545
+61,Male,176.9,96.4,30.8,Weight Loss,6010,30,434,0.7,8.6,3.7,Metabolic Fat-Burn Foundation,44,8500,588
+33,Male,162.3,81.4,30.9,Weight Loss,10891,49,608,0.81,8.7,1.7,HIIT & Resistance Conditioning,61,12391,827
+51,Male,165.7,57.7,21.0,Maintain Weight,7227,51,725,0.97,5.9,2.3,Balanced Functional & Mobility Routine,50,8500,610
+47,Female,155.8,55.1,22.7,Weight Loss,3463,72,736,0.72,7.6,3.3,Metabolic Fat-Burn Foundation,55,8500,692
+25,Female,160.8,44.7,17.3,Muscle Gain,7892,20,343,0.22,6.0,3.0,Full-Body Hypertrophy Builder,45,8297,518
+32,Female,167.6,87.1,31.0,Weight Loss,10314,73,917,0.25,6.9,2.4,Metabolic Fat-Burn Foundation,55,11500,752
+24,Female,156.1,70.7,29.0,General Fitness,8034,59,751,0.63,5.6,3.2,Hybrid Cardio-Strength Wellness Plan,60,9334,702
+54,Male,168.2,64.2,22.7,General Fitness,12276,80,1051,0.58,7.5,2.5,Hybrid Cardio-Strength Wellness Plan,50,10500,746
+44,Male,179.2,79.3,24.7,Improve Endurance,10947,83,1110,0.43,7.8,3.0,Aerobic Zone-2 & Tempo Stamina Plan,75,12747,1045
+19,Female,160.4,76.7,29.8,General Fitness,10574,51,660,0.54,6.4,2.3,Hybrid Cardio-Strength Wellness Plan,60,11500,746
+29,Female,171.4,61.1,20.8,Muscle Gain,7484,71,788,0.76,5.8,2.6,Progressive Split Strength & Hypertrophy,75,7909,757
+56,Male,176.4,71.6,23.0,Muscle Gain,13926,53,827,0.41,7.5,2.6,Full-Body Hypertrophy Builder,50,10000,672
+33,Male,164.4,51.4,19.0,Muscle Gain,7388,55,644,0.2,8.6,1.5,Full-Body Hypertrophy Builder,60,7818,632
+64,Female,174.4,100.4,33.0,General Fitness,7930,76,1025,0.23,8.8,3.5,Hybrid Cardio-Strength Wellness Plan,50,9230,700
+39,Female,161.6,50.9,19.5,Maintain Weight,12724,61,856,0.62,8.6,2.9,Balanced Functional & Mobility Routine,55,10500,650
+52,Male,173.3,58.0,19.3,Muscle Gain,8050,25,454,0.76,7.3,2.4,Progressive Split Strength & Hypertrophy,50,8447,562
+41,Female,156.1,78.9,32.4,Weight Loss,11026,72,909,0.58,8.4,2.4,HIIT & Resistance Conditioning,65,12526,868
+43,Male,169.4,74.9,26.1,Maintain Weight,9356,42,588,0.37,8.4,2.3,Balanced Functional & Mobility Routine,49,10256,597
+49,Male,165.8,73.7,26.8,Maintain Weight,6013,52,682,0.31,8.5,2.7,Balanced Functional & Mobility Routine,55,8500,610
+55,Female,161.3,45.8,17.6,Muscle Gain,3985,33,365,0.72,7.1,1.7,Progressive Split Strength & Hypertrophy,50,7500,545
+34,Male,176.7,63.4,20.3,Muscle Gain,10073,73,1015,0.37,5.8,3.5,Full-Body Hypertrophy Builder,60,10000,672
+26,Female,165.2,92.2,33.8,Improve Endurance,6537,67,619,0.67,8.8,3.7,Aerobic Zone-2 & Tempo Stamina Plan,75,10500,996

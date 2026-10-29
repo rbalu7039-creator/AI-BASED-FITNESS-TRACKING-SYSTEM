@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>AI Fitness Recommendation Engine | FitAI Pulse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-topbar">
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn-glass py-1 px-2" data-action="toggle-sidebar" type="button"><i class="fa-solid fa-bars"></i></button>
+            <span class="fw-bold">FitAI Pulse</span>
+        </div>
+        <button class="btn-glass py-1 px-2" data-action="toggle-theme" type="button"><i class="fa-solid fa-sun text-warning"></i></button>
+    </div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="app-wrapper" id="recommendationsPageRoot">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <a href="/dashboard" class="sidebar-brand">
+                <div class="brand-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                    <div class="brand-title">FitAI Pulse</div>
+                    <div class="brand-subtitle">AI Fitness System</div>
+                </div>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li><a href="/dashboard" class="sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
+                <li><a href="/workouts" class="sidebar-link"><i class="fa-solid fa-circle-play text-danger"></i><span>AI Video Workouts</span></a></li>
+                <li><a href="/vision" class="sidebar-link"><i class="fa-solid fa-video text-warning"></i><span>AI Vision Tracker</span></a></li>
+                <li><a href="/activities" class="sidebar-link"><i class="fa-solid fa-dumbbell"></i><span>Activity Log</span></a></li>
+                <li><a href="/analytics" class="sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Progress Analytics</span></a></li>
+                <li><a href="/recommendations" class="sidebar-link active"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Coach &amp; Plan</span></a></li>
+                <li><a href="/nutrition" class="sidebar-link"><i class="fa-solid fa-apple-whole text-success"></i><span>AI Nutrition</span></a></li>
+                <li><a href="/profile" class="sidebar-link"><i class="fa-solid fa-user-gear"></i><span>Profile &amp; Goals</span></a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn-glass w-100 justify-content-start" data-action="toggle-theme" type="button">
+                    <i class="fa-solid fa-sun text-warning"></i>
+                    <span class="theme-label">Light Mode</span>
+                </button>
+                <div class="user-mini-card">
+                    <div class="user-avatar-circle" id="sidebarUserInitial">A</div>
+                    <div class="overflow-hidden">
+                        <div class="fw-bold small text-truncate" id="sidebarUserName">Aarav Sharma</div>
+                        <div class="text-secondary" style="font-size: 0.74rem;" id="sidebarUserGoal">Weight Loss</div>
+                    </div>
+                </div>
+                <button class="btn-glass w-100 text-danger border-danger border-opacity-25" data-action="logout" type="button">
+                    <i class="fa-solid fa-power-off"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="app-main">
+            <!-- AI Engine Header Banner -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center g-3">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-microchip me-1"></i>Scikit-learn Random Forest Active</span>
+                            <span class="badge-soft-cyan" id="aiModelConfidence">--% Confidence</span>
+                            <span class="small text-secondary" id="aiGeneratedTimestamp"></span>
+                        </div>
+                        <h2 class="fw-bolder mb-1" id="aiArchetypeTitle">Loading AI Regimen...</h2>
+                        <div class="small text-secondary">
+                            Engine: <span id="aiAlgorithmName">Hybrid Scikit-learn Random Forest &amp; Exercise Physiology Rule Engine</span>
+                            &bull; Classifier Accuracy: <strong class="text-success" id="aiModelAccuracy">94.4%</strong>
+                            &bull; Regressor R<sup>2</sup>: <strong class="text-info" id="aiModelR2">0.78</strong>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="/activities" class="btn-glass"><i class="fa-solid fa-dumbbell"></i> Log New Workout</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive AI Calibration Form & User Telemetry Analyzed -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-7">
+                    <div class="glass-card h-100">
+                        <h5 class="fw-bold mb-1"><i class="fa-solid fa-sliders text-success me-2"></i>Run Personalized AI Recommendation Model</h5>
+                        <p class="small text-secondary mb-3">Adjust parameters or run directly on your stored 14-day workout telemetry</p>
+
+                        <form id="generateAiPlanForm" class="row g-3">
+                            <div class="col-sm-6">
+                                <label class="form-label-custom">Target Fitness Goal</label>
+                                <select id="aiInputGoal" class="form-select form-select-glass">
+                                    <option value="Weight Loss">Weight Loss</option>
+                                    <option value="Muscle Gain">Muscle Gain</option>
+                                    <option value="General Fitness">General Fitness</option>
+                                    <option value="Improve Endurance">Improve Endurance</option>
+                                    <option value="Maintain Weight">Maintain Weight</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label-custom">Current Weight (kg)</label>
+                                <input type="number" step="0.1" id="aiInputWeight" class="form-control form-control-glass" min="20" max="350" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label-custom">Recent Avg Daily Steps</label>
+                                <input type="number" id="aiInputSteps" class="form-control form-control-glass" min="0" max="100000" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label-custom">Recent Avg Workout Duration (mins)</label>
+                                <input type="number" id="aiInputDuration" class="form-control form-control-glass" min="0" max="360" required>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn-brand w-100 py-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate New AI Fitness Recommendation Plan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="glass-card h-100">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-fingerprint text-info me-2"></i>Stored Biometric Inputs Analyzed</h5>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex justify-content-between p-2 rounded-3 border" style="border-color: var(--border-glass) !important;">
+                                <span class="small text-secondary">Primary Fitness Goal</span>
+                                <span class="fw-bold text-success" id="snapGoal">--</span>
+                            </div>
+                            <div class="d-flex justify-content-between p-2 rounded-3 border" style="border-color: var(--border-glass) !important;">
+                                <span class="small text-secondary">Body Mass Index (BMI)</span>
+                                <span class="fw-bold font-mono-metric" id="snapBmi">--</span>
+                            </div>
+                            <div class="d-flex justify-content-between p-2 rounded-3 border" style="border-color: var(--border-glass) !important;">
+                                <span class="small text-secondary">14-Day Avg Daily Steps</span>
+                                <span class="fw-bold font-mono-metric text-info" id="snapAvgSteps">--</span>
+                            </div>
+                            <div class="d-flex justify-content-between p-2 rounded-3 border" style="border-color: var(--border-glass) !important;">
+                                <span class="small text-secondary">14-Day Avg Workout Duration</span>
+                                <span class="fw-bold font-mono-metric" id="snapAvgDuration">--</span>
+                            </div>
+                            <div class="d-flex justify-content-between p-2 rounded-3 border" style="border-color: var(--border-glass) !important;">
+                                <span class="small text-secondary">Activity Logging Consistency</span>
+                                <span class="fw-bold font-mono-metric text-warning" id="snapConsistency">--%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Suggested Workout Duration, 3. Daily Step Target, 4. Calorie Guidance Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="stat-label">2. Suggested Workout Duration</span>
+                            <div class="stat-card-icon icon-emerald"><i class="fa-solid fa-stopwatch"></i></div>
+                        </div>
+                        <div class="fs-2 fw-bolder font-mono-metric text-success" id="recDurationVal">-- mins / day</div>
+                        <div class="small fw-semibold text-info mb-2" id="recDurationWeekly">-- mins / week</div>
+                        <p class="small text-secondary mb-0" id="recDurationRationale"></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="stat-label">3. Daily Step Target</span>
+                            <div class="stat-card-icon icon-cyan"><i class="fa-solid fa-person-walking"></i></div>
+                        </div>
+                        <div class="fs-2 fw-bolder font-mono-metric text-info" id="recStepsVal">-- steps</div>
+                        <div class="small fw-semibold text-success mb-2" id="recStepsKm">-- km / day</div>
+                        <p class="small text-secondary mb-0" id="recStepsRationale"></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="glass-card h-100">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="stat-label">4. Calorie &amp; Energy Guidance</span>
+                            <div class="stat-card-icon icon-amber"><i class="fa-solid fa-fire-flame-simple"></i></div>
+                        </div>
+                        <div class="d-flex gap-3 align-items-baseline">
+                            <div>
+                                <div class="small text-secondary">Dietary Target</div>
+                                <div class="fs-4 fw-bolder font-mono-metric text-warning" id="recIntakeVal">-- kcal</div>
+                            </div>
+                            <div>
+                                <div class="small text-secondary">Active Burn</div>
+                                <div class="fs-4 fw-bolder font-mono-metric text-success" id="recActiveBurnVal">-- kcal</div>
+                            </div>
+                        </div>
+                        <div class="small text-info mt-1 mb-2" id="recTdeeSub"></div>
+                        <p class="small text-secondary mb-0" id="recCalorieGuidanceText"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1. Daily Workout Plan (7-Day Structured Schedule) -->
+            <div class="glass-card mb-4">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                    <div>
+                        <h5 class="fw-bold mb-1"><i class="fa-solid fa-calendar-check text-success me-2"></i>1. Personalized 7-Day Workout Plan</h5>
+                        <div class="small text-secondary">Focus: <strong id="recPlanFocus">--</strong></div>
+                    </div>
+                    <span class="badge-soft-cyan" id="recPlanIntensity">--</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-glass">
+                        <thead>
+                            <tr>
+                                <th style="width: 130px;">Day</th>
+                                <th style="width: 280px;">Recommended Session</th>
+                                <th style="width: 120px;">Duration</th>
+                                <th>Exercise Prescription &amp; Intensity Protocol</th>
+                            </tr>
+                        </thead>
+                        <tbody id="aiWorkoutScheduleBody">
+                            <tr><td colspan="4" class="text-center py-4 text-secondary">Synthesizing 7-day workout schedule...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 5. Recovery & Rest Suggestions AND 6. Weekly Fitness Improvement Suggestions -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6">
+                    <div class="glass-card h-100">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-spa text-info me-2"></i>5. Recovery, Hydration &amp; Rest Suggestions</h5>
+                        <ul class="list-unstyled mb-0" id="aiRecoveryList"></ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="glass-card h-100">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-ranking-star text-success me-2"></i>6. Weekly Fitness Improvement Suggestions</h5>
+                        <ul class="list-unstyled mb-0" id="aiWeeklyImprovementList"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stored AI Recommendations History in SQLite -->
+            <div class="glass-card">
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-database text-secondary me-2"></i>AI Recommendation History (Stored in SQLite)</h5>
+                <div class="table-responsive">
+                    <table class="table table-glass">
+                        <thead>
+                            <tr>
+                                <th>Generated Timestamp</th>
+                                <th>Predicted Regimen Archetype</th>
+                                <th>Daily Step Target</th>
+                                <th>Suggested Workout Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody id="aiHistoryTableBody">
+                            <tr><td colspan="4" class="text-center py-3 text-secondary">Loading history...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="small text-secondary fst-italic mt-3">
+                    <i class="fa-solid fa-shield-heart me-1"></i>Safety Notice: Recommendations avoid extreme caloric restrictions and unsafe training loads. Consult a certified physician before starting intensive physical regimens.
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="/static/js/recommendations.js"></script>
+    <script src="../static/js/recommendations.js"></script>
+</body>
+</html>
