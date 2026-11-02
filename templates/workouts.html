@@ -143,23 +143,141 @@
                 </div>
             </div>
 
-            <!-- Category Filter Tabs & Search -->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
-                <div class="d-flex flex-wrap gap-2" id="categoryFilterBar">
-                    <button class="btn-glass py-1 px-3 active" data-filter="all">All Routines</button>
-                    <button class="btn-glass py-1 px-3" data-filter="strength">Strength</button>
-                    <button class="btn-glass py-1 px-3" data-filter="hiit">HIIT &amp; Cardio</button>
-                    <button class="btn-glass py-1 px-3" data-filter="core">Core &amp; Abs</button>
-                    <button class="btn-glass py-1 px-3" data-filter="mobility">Yoga &amp; Mobility</button>
+            <!-- AI Voice Search & Suggestion Hub -->
+            <div class="glass-card mb-4 p-4 border border-info border-opacity-25" id="aiVoiceSearchCard" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.08), rgba(99, 102, 241, 0.05));">
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-lg-7">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                            <span class="badge-soft-cyan"><i class="fa-solid fa-microphone me-1"></i>AI Voice Search</span>
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-volume-high me-1"></i>Vocal Coaching</span>
+                            <span class="badge-soft-rose"><i class="fa-solid fa-bolt me-1"></i>Smart Muscle Matching</span>
+                        </div>
+                        <h4 class="fw-bold mb-1">Workout Search &amp; AI Voice Suggestions</h4>
+                        <div class="small text-secondary">
+                            Search any muscle or exercise, or speak aloud. Our AI Coach will filter the workouts and vocalize personalized form advice!
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                            <button class="btn-brand py-2 px-3 shadow-sm" id="btnVoiceSuggest" type="button" title="Get vocal AI workout recommendation">
+                                <i class="fa-solid fa-wand-magic-sparkles me-1"></i>
+                                <span>AI Voice Suggest</span>
+                            </button>
+                            <button class="btn-glass py-2 px-3 text-cyan border-cyan shadow-sm" id="btnVoiceSearch" type="button" title="Click and speak your workout search">
+                                <i class="fa-solid fa-microphone me-1" id="micIcon"></i>
+                                <span id="micLabel">Speak Search</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="search-box-wrapper" style="min-width: 260px;">
-                    <div class="input-group">
-                        <span class="input-group-text border-end-0 bg-transparent text-secondary" style="border-color: var(--border-glass) !important;">
+                <!-- Search Input Row with Live Microphone Controls -->
+                <div class="position-relative mb-3">
+                    <div class="input-group input-group-lg search-input-group shadow-sm">
+                        <span class="input-group-text border-end-0 bg-transparent text-cyan" style="border-color: var(--border-glass) !important;">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" class="form-control border-start-0 ps-0 text-white" id="searchWorkoutInput" placeholder="Search workouts, muscles..." style="background: var(--bg-input); border-color: var(--border-glass) !important;">
+                        <input type="text" 
+                               class="form-control border-start-0 border-end-0 text-white" 
+                               id="searchWorkoutInput" 
+                               placeholder="Type or speak: 'Legs & Squats', 'HIIT Shred', 'Arm Biceps', 'Push-ups', 'Core Abs'..." 
+                               style="background: var(--bg-input); border-color: var(--border-glass) !important; font-size: 0.98rem;">
+                        <button class="btn-glass border-start-0 text-secondary px-3 d-none" id="btnClearSearch" type="button" title="Clear Search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <button class="btn-glass border-start-0 text-cyan px-3" id="btnVoiceSearchInput" type="button" title="Speak search">
+                            <i class="fa-solid fa-microphone" id="inputMicIcon"></i>
+                        </button>
                     </div>
+
+                    <!-- Voice Listening State Bar -->
+                    <div class="voice-listening-bar d-none" id="voiceListeningBar">
+                        <div class="d-flex align-items-center gap-2 px-3 py-2 rounded-3 mt-2" style="background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4);">
+                            <span class="pulse-recording-dot"></span>
+                            <span class="small text-danger fw-bold" id="voiceListeningText">Listening... Speak now (e.g., "Leg workout with squats")</span>
+                            <button class="btn btn-sm btn-outline-danger ms-auto py-0 px-2" id="btnStopListening" type="button">Stop Mic</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Voice Suggestion Speech Bubble (Vocalizes Coaching Advice) -->
+                <div class="ai-speech-card d-none mb-3 p-3 rounded-3" id="aiSpeechBubble" style="background: rgba(15, 23, 42, 0.88); border: 1px solid rgba(6, 182, 212, 0.45); box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.15);">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="coach-avatar-box flex-shrink-0 text-center">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center p-2 mb-1" style="background: rgba(6, 182, 212, 0.2); width: 44px; height: 44px; border: 1px solid rgba(6, 182, 212, 0.5);">
+                                <i class="fa-solid fa-headset text-cyan" style="font-size: 1.25rem;"></i>
+                            </div>
+                            <div class="sound-wave-bars justify-content-center" id="soundWaveAnimation">
+                                <span class="bar bar-1"></span>
+                                <span class="bar bar-2"></span>
+                                <span class="bar bar-3"></span>
+                                <span class="bar bar-4"></span>
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="fw-bold text-cyan small"><i class="fa-solid fa-robot me-1"></i>FitAI Voice Coach</span>
+                                    <span class="badge bg-success-subtle text-success small" id="speechStatusBadge">Speaking</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button class="btn btn-sm btn-outline-light py-0 px-2 small" id="btnReplayVoice" type="button" title="Replay Voice">
+                                        <i class="fa-solid fa-rotate-right me-1"></i>Replay
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger py-0 px-2 small" id="btnStopVoice" type="button" title="Stop Voice">
+                                        <i class="fa-solid fa-volume-xmark me-1"></i>Stop
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-light small mb-2" id="aiSpeechText" style="line-height: 1.5;">
+                                "Welcome to the AI Workout Studio! Ask me for any muscle group or workout goal!"
+                            </div>
+                            <div class="d-flex flex-wrap align-items-center gap-2 pt-1 border-top border-secondary border-opacity-25" id="aiSpeechActionWrap">
+                                <button class="btn btn-sm btn-brand py-1 px-3" id="btnQuickSelectSuggested" type="button">
+                                    <i class="fa-solid fa-circle-play me-1"></i>Start Recommended Workout
+                                </button>
+                                <span class="small text-secondary" id="aiSpeechMeta">Target: Glutes &amp; Quads &bull; ~140 kcal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Filter Tags & Category Selectors -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                    <div class="d-flex flex-wrap align-items-center gap-2" id="categoryFilterBar">
+                        <button class="btn-glass py-1 px-3 active" data-filter="all">All Routines</button>
+                        <button class="btn-glass py-1 px-3" data-filter="strength"><i class="fa-solid fa-dumbbell me-1 text-danger"></i>Strength</button>
+                        <button class="btn-glass py-1 px-3" data-filter="hiit"><i class="fa-solid fa-bolt me-1 text-warning"></i>HIIT &amp; Cardio</button>
+                        <button class="btn-glass py-1 px-3" data-filter="core"><i class="fa-solid fa-fire me-1 text-success"></i>Core &amp; Abs</button>
+                        <button class="btn-glass py-1 px-3" data-filter="mobility"><i class="fa-solid fa-spa me-1 text-cyan"></i>Yoga &amp; Mobility</button>
+                    </div>
+
+                    <div class="d-flex flex-wrap align-items-center gap-1">
+                        <span class="small text-secondary me-1"><i class="fa-solid fa-fire text-warning me-1"></i>Quick AI Picks:</span>
+                        <button class="chip-filter" data-chip="squat">Legs</button>
+                        <button class="chip-filter" data-chip="hiit">HIIT</button>
+                        <button class="chip-filter" data-chip="bicep">Arms</button>
+                        <button class="chip-filter" data-chip="push">Chest</button>
+                        <button class="chip-filter" data-chip="core">Abs</button>
+                        <button class="chip-filter" data-chip="yoga">Yoga</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Search Results Message (Hidden by default) -->
+            <div class="glass-card text-center p-5 mb-4 d-none" id="noWorkoutsFoundCard">
+                <div class="rounded-circle d-inline-flex align-items-center justify-content-center p-3 mb-3" style="background: rgba(239, 68, 68, 0.1); width: 64px; height: 64px;">
+                    <i class="fa-solid fa-magnifying-glass text-danger" style="font-size: 1.75rem;"></i>
+                </div>
+                <h4 class="fw-bold mb-1">No Workouts Found for "<span id="noMatchQuery"></span>"</h4>
+                <p class="text-secondary small mb-3">Our AI Coach suggests trying one of our core training routines instead.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <button class="btn-brand" id="btnResetSearch">
+                        <i class="fa-solid fa-rotate-left me-1"></i>Show All Workouts
+                    </button>
+                    <button class="btn-glass text-cyan border-cyan" id="btnVoiceSuggestAlternative">
+                        <i class="fa-solid fa-wand-magic-sparkles me-1"></i>AI Voice Suggest Alternative
+                    </button>
                 </div>
             </div>
 
