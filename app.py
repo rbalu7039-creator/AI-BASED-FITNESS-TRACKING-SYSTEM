@@ -66,6 +66,8 @@ def create_app():
 
     # Frontend HTML Page Routes
     @app.route("/")
+    @app.route("/api/index")
+    @app.route("/api/index/")
     def index_page():
         return render_template("index.html")
 
@@ -196,7 +198,9 @@ def create_app():
 
     @app.errorhandler(404)
     def not_found_error(error):
-        return jsonify({"success": False, "error": "Resource not found"}), 404
+        if request.path.startswith("/api/") and not request.path.startswith("/api/index"):
+            return jsonify({"success": False, "error": "Resource not found"}), 404
+        return redirect(url_for("index_page"))
 
     @app.errorhandler(500)
     def internal_error(error):
