@@ -67,13 +67,13 @@
                 <div class="row align-items-center g-3">
                     <div class="col-lg-8">
                         <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-                            <span class="badge-soft-emerald"><i class="fa-solid fa-bowl-food me-1"></i>Metabolic Macro Engine</span>
-                            <span class="badge-soft-cyan"><i class="fa-solid fa-fire me-1"></i>TDEE Caloric Deficit / Surplus</span>
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-bowl-food me-1"></i>Multi-Plan Macro Engine</span>
+                            <span class="badge-soft-cyan"><i class="fa-solid fa-fire me-1"></i>TDEE Metabolic Balancing</span>
                             <span class="badge-soft-amber"><i class="fa-solid fa-faucet-drip me-1"></i>Hydration Telemetry</span>
                         </div>
-                        <h2 class="fw-bolder mb-1">AI Nutrition &amp; Macro Planner</h2>
+                        <h2 class="fw-bolder mb-1">AI Nutrition &amp; Multi-Plan Macro Engine</h2>
                         <div class="small text-secondary">
-                            Mifflin-St Jeor metabolic calculations tailored to your biometric profile and fitness goal.
+                            Generate multiple tailored nutrition blueprints across distinct dietary archetypes with interactive 7-day meal rotations.
                         </div>
                     </div>
                     <div class="col-lg-4 text-lg-end">
@@ -101,7 +101,7 @@
                             <i class="fa-solid fa-drumstick-bite text-info"></i>
                         </div>
                         <div class="fs-2 fw-bold font-mono-metric text-info mt-1" id="nutriProteinTarget">150g</div>
-                        <div class="small text-secondary">2.0g per kg bodyweight</div>
+                        <div class="small text-secondary" id="nutriProteinContext">2.0g per kg bodyweight</div>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
@@ -111,7 +111,7 @@
                             <i class="fa-solid fa-wheat-awn text-warning"></i>
                         </div>
                         <div class="fs-2 fw-bold font-mono-metric text-warning mt-1" id="nutriCarbsFats">215g / 65g</div>
-                        <div class="small text-secondary">Optimal glycogen replenishment</div>
+                        <div class="small text-secondary" id="nutriCarbsFatsContext">Optimal glycogen &amp; hormones</div>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
@@ -121,32 +121,113 @@
                             <i class="fa-solid fa-droplet text-primary"></i>
                         </div>
                         <div class="fs-2 fw-bold font-mono-metric text-primary mt-1" id="nutriWaterTarget">2.8L <span class="fs-6 text-secondary" id="nutriCurrentWater">/ 1.5L logged</span></div>
-                        <div class="small text-success"><i class="fa-solid fa-check me-1"></i>54% of daily baseline</div>
+                        <div class="small text-success" id="nutriWaterPercent"><i class="fa-solid fa-check me-1"></i>54% of daily baseline</div>
                     </div>
                 </div>
             </div>
 
+            <!-- AI Multi-Plan Controls Bar -->
+            <div class="glass-card mb-4 p-4 border border-info border-opacity-25" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), rgba(16, 185, 129, 0.05), rgba(99, 102, 241, 0.05));">
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-lg-7">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                            <span class="badge-soft-cyan"><i class="fa-solid fa-wand-magic-sparkles me-1"></i>AI Multi-Plan Generator</span>
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-calendar-week me-1"></i>7-Day Rotation</span>
+                            <span class="badge-soft-rose"><i class="fa-solid fa-utensils me-1"></i>6 Diet Styles</span>
+                        </div>
+                        <h4 class="fw-bold mb-1">Generate Multiple AI Diet Plans</h4>
+                        <div class="small text-secondary">
+                            Generate and switch between 3 tailored plan variations or choose from 6 dietary archetypes with 7-day meal rotations.
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-lg-end">
+                        <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                            <button class="btn-brand py-2 px-3 shadow-sm" id="btnGenerateAllPlans" type="button">
+                                <i class="fa-solid fa-wand-magic-sparkles me-1"></i>Generate 3 AI Variations
+                            </button>
+                            <button class="btn-glass py-2 px-3 text-cyan border-cyan shadow-sm" id="btnToggleSideBySide" type="button">
+                                <i class="fa-solid fa-table-columns me-1"></i><span id="sideBySideBtnLabel">Compare Side-by-Side</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diet Archetype Pills -->
+                <div class="mb-3 pt-2 border-top border-secondary border-opacity-25">
+                    <div class="d-flex flex-wrap align-items-center gap-2" id="dietStyleSelector">
+                        <span class="small text-secondary me-1 fw-bold"><i class="fa-solid fa-filter me-1"></i>Diet Style:</span>
+                        <button class="chip-filter active" data-diet="high-protein"><i class="fa-solid fa-drumstick-bite me-1"></i>High-Protein Muscle</button>
+                        <button class="chip-filter" data-diet="plant-based"><i class="fa-solid fa-leaf me-1 text-success"></i>Plant-Based / Veg</button>
+                        <button class="chip-filter" data-diet="keto"><i class="fa-solid fa-bacon me-1 text-warning"></i>Keto / Low-Carb</button>
+                        <button class="chip-filter" data-diet="mediterranean"><i class="fa-solid fa-fish me-1 text-cyan"></i>Mediterranean</button>
+                        <button class="chip-filter" data-diet="quick-prep"><i class="fa-solid fa-stopwatch me-1 text-danger"></i>15-Min Quick Prep</button>
+                        <button class="chip-filter" data-diet="asian-balanced"><i class="fa-solid fa-bowl-rice me-1 text-info"></i>Indian / Asian</button>
+                    </div>
+                </div>
+
+                <!-- Multi-Plan Variation Tabs & 7-Day Day Selector -->
+                <div class="row g-3 align-items-center pt-2 border-top border-secondary border-opacity-25">
+                    <!-- 3 Generated Plan Variations -->
+                    <div class="col-lg-6">
+                        <div class="small text-secondary mb-1 fw-bold"><i class="fa-solid fa-sliders me-1 text-cyan"></i>ACTIVE PLAN VARIATION:</div>
+                        <div class="btn-group w-100 shadow-sm" role="group" id="planVariationTabs">
+                            <button type="button" class="btn btn-outline-info active py-2 small" data-variation="0">
+                                <i class="fa-solid fa-circle-check me-1"></i>Plan A: Hypertrophy
+                            </button>
+                            <button type="button" class="btn btn-outline-info py-2 small" data-variation="1">
+                                <i class="fa-solid fa-bolt me-1"></i>Plan B: Fat Shred
+                            </button>
+                            <button type="button" class="btn btn-outline-info py-2 small" data-variation="2">
+                                <i class="fa-solid fa-heart-pulse me-1"></i>Plan C: Balanced Clean
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Day Selector -->
+                    <div class="col-lg-6">
+                        <div class="small text-secondary mb-1 fw-bold"><i class="fa-regular fa-calendar-days me-1 text-warning"></i>7-DAY ROTATION:</div>
+                        <div class="d-flex flex-wrap gap-1" id="dayRotationTabs">
+                            <button class="btn-glass py-1 px-3 active small" data-day="1">Mon (Day 1)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="2">Tue (Day 2)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="3">Wed (Day 3)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="4">Thu (Day 4)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="5">Fri (Day 5)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="6">Sat (Day 6)</button>
+                            <button class="btn-glass py-1 px-3 small" data-day="7">Sun (Day 7)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side-by-Side 3-Plan Comparison Grid (Toggleable) -->
+            <div class="row g-4 mb-4 d-none" id="sideBySideCompareRow">
+                <!-- Dynamically rendered when user clicks 'Compare Side-by-Side' -->
+            </div>
+
             <!-- Macro Split Chart & AI Meal Plans -->
-            <div class="row g-4 mb-4">
+            <div class="row g-4 mb-4" id="mainNutritionContentRow">
                 <!-- Left: Macro Donut -->
                 <div class="col-lg-4">
                     <div class="glass-card p-4 h-100">
-                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-pie me-2 text-info"></i>Macronutrient Ratio</h5>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0"><i class="fa-solid fa-chart-pie me-2 text-info"></i>Macronutrient Ratio</h5>
+                            <span class="badge-soft-cyan small" id="chartPlanBadge">Plan A</span>
+                        </div>
                         <div style="position: relative; height: 220px; width: 100%;">
                             <canvas id="macroDonutChart"></canvas>
                         </div>
                         <div class="d-flex justify-content-around text-center mt-3 pt-3 border-top" style="border-color: var(--border-glass) !important;">
                             <div>
                                 <span class="badge bg-primary px-2 py-1 mb-1">Protein</span>
-                                <div class="fw-bold font-mono-metric">30%</div>
+                                <div class="fw-bold font-mono-metric" id="chartProteinPct">35%</div>
                             </div>
                             <div>
                                 <span class="badge bg-warning px-2 py-1 mb-1 text-dark">Carbs</span>
-                                <div class="fw-bold font-mono-metric">45%</div>
+                                <div class="fw-bold font-mono-metric" id="chartCarbsPct">40%</div>
                             </div>
                             <div>
                                 <span class="badge bg-danger px-2 py-1 mb-1">Fats</span>
-                                <div class="fw-bold font-mono-metric">25%</div>
+                                <div class="fw-bold font-mono-metric" id="chartFatsPct">25%</div>
                             </div>
                         </div>
                     </div>
@@ -155,59 +236,27 @@
                 <!-- Right: AI Generated Meal Suggestions -->
                 <div class="col-lg-8">
                     <div class="glass-card p-4 h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="fw-bold mb-0"><i class="fa-solid fa-wand-magic-sparkles me-2 text-warning"></i>Personalized AI Meal Blueprint</h5>
-                            <button class="btn-glass py-1 px-3 small" id="btnRefreshMeals"><i class="fa-solid fa-arrows-rotate me-1"></i>Regenerate Meals</button>
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                            <div>
+                                <h5 class="fw-bold mb-1" id="currentPlanTitle">
+                                    <i class="fa-solid fa-wand-magic-sparkles me-2 text-warning"></i>Plan A: High-Protein Muscle (Day 1)
+                                </h5>
+                                <div class="small text-secondary" id="currentPlanSubtitle">
+                                    Target: ~2,150 kcal • 165g Protein • Muscle Sparing Macro Profile
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn-brand py-1 px-3 small" id="btnLogDailyMeals">
+                                    <i class="fa-solid fa-circle-check me-1"></i>Log Meals to Tracker
+                                </button>
+                                <button class="btn-glass py-1 px-3 small" id="btnRefreshMeals">
+                                    <i class="fa-solid fa-arrows-rotate me-1"></i>Regenerate
+                                </button>
+                            </div>
                         </div>
 
                         <div class="row g-3" id="mealsContainer">
-                            <!-- Breakfast -->
-                            <div class="col-md-6">
-                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(16,185,129,0.04);">
-                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <span class="badge bg-success-subtle text-success fw-bold">BREAKFAST &bull; ~480 kcal</span>
-                                        <span class="small text-secondary">32g Protein</span>
-                                    </div>
-                                    <div class="fw-bold">Scrambled Eggs with Avocado &amp; Oatmeal</div>
-                                    <div class="small text-secondary mt-1">3 whole eggs, spinach, 1 slice whole-grain sourdough toast, and 50g rolled oats with berries.</div>
-                                </div>
-                            </div>
-
-                            <!-- Lunch -->
-                            <div class="col-md-6">
-                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(6,182,212,0.04);">
-                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <span class="badge bg-info-subtle text-info fw-bold">LUNCH &bull; ~620 kcal</span>
-                                        <span class="small text-secondary">48g Protein</span>
-                                    </div>
-                                    <div class="fw-bold">Grilled Chicken Breast, Quinoa &amp; Steamed Broccoli</div>
-                                    <div class="small text-secondary mt-1">180g lean chicken breast with olive oil drizzle, 1 cup cooked quinoa, and fresh greens.</div>
-                                </div>
-                            </div>
-
-                            <!-- Snack -->
-                            <div class="col-md-6">
-                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(245,158,11,0.04);">
-                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <span class="badge bg-warning-subtle text-warning fw-bold">POST-WORKOUT SNACK &bull; ~310 kcal</span>
-                                        <span class="small text-secondary">28g Protein</span>
-                                    </div>
-                                    <div class="fw-bold">Greek Yogurt Bowl with Almonds &amp; Honey</div>
-                                    <div class="small text-secondary mt-1">200g Greek yogurt 0% fat, 15g raw almonds, 1 tsp chia seeds, and 1 scoop whey protein.</div>
-                                </div>
-                            </div>
-
-                            <!-- Dinner -->
-                            <div class="col-md-6">
-                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(99,102,241,0.04);">
-                                    <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <span class="badge bg-primary-subtle text-primary fw-bold">DINNER &bull; ~540 kcal</span>
-                                        <span class="small text-secondary">42g Protein</span>
-                                    </div>
-                                    <div class="fw-bold">Baked Salmon Fillet with Sweet Potato</div>
-                                    <div class="small text-secondary mt-1">160g Atlantic salmon, 150g roasted sweet potato cubes, and grilled asparagus spears.</div>
-                                </div>
-                            </div>
+                            <!-- Breakfast, Lunch, Snack, Dinner dynamically generated by nutrition.js -->
                         </div>
                     </div>
                 </div>

@@ -1,14 +1,15 @@
 /**
- * FitAI Pulse - AI Video Workout Studio Engine
- * Interactive Video Training & Direct Activity Sync
+ * FitAI Pulse - AI Video Workout Studio Engine (100 Routines Edition)
+ * Dynamic 100-Routine Catalog, Biomechanical Form Cues, Voice Search & Direct Activity Sync
  */
 
 (function () {
     'use strict';
 
-    // Video Routines Database
-    const workoutRoutines = [
+    // 1. Fallback Routine Array (in case workout_data.js is loading asynchronously)
+    const fallbackRoutines = [
         {
+            id: 1,
             title: "Bodyweight Squats & Leg Power Mastery",
             category: "STRENGTH • MASTERCLASS",
             filterCat: "strength",
@@ -19,6 +20,7 @@
             caloriesNum: 140,
             sets: "3 Sets • 15 Reps",
             videoEmbed: "https://www.youtube.com/embed/aclHkVaku9U?rel=0&enablejsapi=1&autoplay=1",
+            thumbnail: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&auto=format&fit=crop&q=80",
             desc: "Learn optimal hip-hinge mechanics, knee alignment, and 90° depth control to maximize glute and quad engagement without spinal strain.",
             checkpoints: [
                 "Maintain neutral lumbar spine; avoid rounding or hyperextending back",
@@ -26,105 +28,38 @@
                 "Keep knees tracking over 2nd & 3rd toes (prevent valgus collapse)"
             ],
             muscles: ["Quadriceps", "Gluteus Maximus", "Hamstrings & Core"]
-        },
-        {
-            title: "Dumbbell Bicep & Arm Sculpt",
-            category: "STRENGTH • HYPERTROPHY",
-            filterCat: "strength",
-            level: "All Levels",
-            duration: "18 Mins",
-            durationNum: 18,
-            calories: "~150 kcal",
-            caloriesNum: 150,
-            sets: "4 Sets • 12 Reps",
-            videoEmbed: "https://www.youtube.com/embed/ykJmrZ5v0Oo?rel=0&enablejsapi=1&autoplay=1",
-            desc: "Lock in strict elbow positioning, eliminate back swing momentum, and master continuous tension throughout the concentric and eccentric phases.",
-            checkpoints: [
-                "Keep elbows pinned to ribcage; do not flare outwards",
-                "Rotate palms upward (supination) at the apex for peak biceps contraction",
-                "Control the eccentric (lowering) phase for a minimum of 2 seconds"
-            ],
-            muscles: ["Biceps Brachii", "Brachialis", "Forearms"]
-        },
-        {
-            title: "Explosive Metabolic HIIT Shred",
-            category: "HIIT • FAT BURN",
-            filterCat: "hiit",
-            level: "High Intensity",
-            duration: "22 Mins",
-            durationNum: 22,
-            calories: "~260 kcal",
-            caloriesNum: 260,
-            sets: "5 Rounds • 40s On / 20s Off",
-            videoEmbed: "https://www.youtube.com/embed/ml6cT4AZdqI?rel=0&enablejsapi=1&autoplay=1",
-            desc: "High-metabolic output circuit combining burpees, jump squats, speed skaters, and mountain climbers designed for sustained EPOC caloric burn.",
-            checkpoints: [
-                "Absorb landing impact through midfoot with bent knees",
-                "Maintain rapid diaphragmatic breathing rhythm during rest intervals",
-                "Drive through heels explosively on jump transitions"
-            ],
-            muscles: ["Full Body", "Cardiovascular", "Calves & Core"]
-        },
-        {
-            title: "Push-Up Mechanics & Chest Form",
-            category: "STRENGTH • UPPER BODY",
-            filterCat: "strength",
-            level: "All Levels",
-            duration: "15 Mins",
-            durationNum: 15,
-            calories: "~135 kcal",
-            caloriesNum: 135,
-            sets: "4 Sets • 15 Reps",
-            videoEmbed: "https://www.youtube.com/embed/IODxDxX7oi4?rel=0&enablejsapi=1&autoplay=1",
-            desc: "Scapular protraction, 45° elbow tuck angle, and full chest-to-floor depth for comprehensive chest, shoulder, and triceps development.",
-            checkpoints: [
-                "Position hands slightly wider than shoulder width; fingers spread wide",
-                "Tuck elbows at 45 degrees relative to torso (avoid T-shape flare)",
-                "Engage glutes and brace core into a solid rigid hollow-body plank"
-            ],
-            muscles: ["Pectoralis Major", "Triceps Brachii", "Anterior Deltoids"]
-        },
-        {
-            title: "360° Core Stability & Six-Pack Conditioning",
-            category: "CORE • ABS",
-            filterCat: "core",
-            level: "Intermediate",
-            duration: "14 Mins",
-            durationNum: 14,
-            calories: "~120 kcal",
-            caloriesNum: 120,
-            sets: "3 Rounds • 45s Work",
-            videoEmbed: "https://www.youtube.com/embed/1919eTCoESo?rel=0&enablejsapi=1&autoplay=1",
-            desc: "Comprehensive anterior and rotational core training utilizing deadbugs, hollow holds, Russian twists, and side planks for spinal protection.",
-            checkpoints: [
-                "Press lower back firmly flat against floor on supine movements",
-                "Initiate torso rotation from thoracic spine rather than jerking neck",
-                "Maintain constant tension on transverse abdominis throughout"
-            ],
-            muscles: ["Rectus Abdominis", "Internal & External Obliques", "Transverse Abs"]
-        },
-        {
-            title: "Full Body Mobility & Spinal Decompression Yoga",
-            category: "YOGA • ACTIVE RECOVERY",
-            filterCat: "mobility",
-            level: "All Levels",
-            duration: "20 Mins",
-            durationNum: 20,
-            calories: "~95 kcal",
-            caloriesNum: 95,
-            sets: "Continuous Flow",
-            videoEmbed: "https://www.youtube.com/embed/v7AYKMP6rOE?rel=0&enablejsapi=1&autoplay=1",
-            desc: "Targeted mobility flows opening up tight hip flexors, lengthening hamstrings, decompressing the lumbar spine, and inducing parasympathetic recovery.",
-            checkpoints: [
-                "Sync deep nasal inhalations and extended exhalations with pose transitions",
-                "Never force joint range of motion into sharp pain; honor your natural boundaries",
-                "Lengthen cervical spine by keeping eye gaze relaxed"
-            ],
-            muscles: ["Hip Flexors", "Thoracic Spine", "Hamstrings & Shoulders"]
         }
     ];
 
+    // Get 100 Workouts Catalog
+    function getWorkoutsCatalog() {
+        if (window.FITAI_100_WORKOUTS && Array.isArray(window.FITAI_100_WORKOUTS) && window.FITAI_100_WORKOUTS.length > 0) {
+            return window.FITAI_100_WORKOUTS;
+        }
+        return fallbackRoutines;
+    }
+
     let currentWorkoutIndex = 0;
+    let currentCategory = 'all';
+    let currentSearchQuery = '';
+    let visibleCount = 12;
+    const PAGE_CHUNK = 12;
+
+    let isListening = false;
+    let lastSpokenText = '';
+    let lastRecommendedIndex = 0;
+
+    // Helper: Category badge styling
+    function getCategoryBadgeClass(filterCat) {
+        switch (filterCat) {
+            case 'strength': return 'bg-danger';
+            case 'hiit': return 'bg-warning text-dark';
+            case 'core': return 'bg-success';
+            case 'mobility': return 'bg-info text-dark';
+            case 'calisthenics': return 'bg-primary';
+            default: return 'bg-secondary';
+        }
+    }
 
     // Audio chime for workout completion
     function playSuccessChime() {
@@ -132,10 +67,9 @@
             const ctx = new (window.AudioContext || window.webkitAudioContext)();
             const now = ctx.currentTime;
             
-            // First note
             const osc1 = ctx.createOscillator();
             const gain1 = ctx.createGain();
-            osc1.frequency.setValueAtTime(523.25, now); // C5
+            osc1.frequency.setValueAtTime(523.25, now);
             gain1.gain.setValueAtTime(0.15, now);
             gain1.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
             osc1.connect(gain1);
@@ -143,10 +77,9 @@
             osc1.start(now);
             osc1.stop(now + 0.2);
 
-            // Second note
             const osc2 = ctx.createOscillator();
             const gain2 = ctx.createGain();
-            osc2.frequency.setValueAtTime(659.25, now + 0.15); // E5
+            osc2.frequency.setValueAtTime(659.25, now + 0.15);
             gain2.gain.setValueAtTime(0.15, now + 0.15);
             gain2.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
             osc2.connect(gain2);
@@ -154,10 +87,9 @@
             osc2.start(now + 0.15);
             osc2.stop(now + 0.35);
 
-            // Third note
             const osc3 = ctx.createOscillator();
             const gain3 = ctx.createGain();
-            osc3.frequency.setValueAtTime(783.99, now + 0.3); // G5
+            osc3.frequency.setValueAtTime(783.99, now + 0.3);
             gain3.gain.setValueAtTime(0.2, now + 0.3);
             gain3.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
             osc3.connect(gain3);
@@ -171,9 +103,10 @@
 
     // Switch Featured Video Player
     function selectWorkout(index) {
-        if (index < 0 || index >= workoutRoutines.length) return;
+        const catalog = getWorkoutsCatalog();
+        if (index < 0 || index >= catalog.length) return;
         currentWorkoutIndex = index;
-        const w = workoutRoutines[index];
+        const w = catalog[index];
 
         const iframe = document.getElementById('mainWorkoutIframe');
         const catBadge = document.getElementById('featuredCategory');
@@ -186,38 +119,54 @@
         const musclesEl = document.getElementById('featuredMuscles');
         const logBtn = document.getElementById('btnLogFeaturedWorkout');
 
-        if (iframe) iframe.src = w.videoEmbed;
-        if (catBadge) catBadge.textContent = w.category;
-        if (levelBadge) levelBadge.innerHTML = `<i class="fa-solid fa-gauge-simple me-1"></i>${w.level}`;
+        let embedUrl = w.videoEmbed || '';
+        if (embedUrl && !embedUrl.includes('autoplay=1')) {
+            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+        }
+
+        if (iframe) iframe.src = embedUrl;
+        if (catBadge) catBadge.textContent = w.category || 'WORKOUT';
+        if (levelBadge) levelBadge.innerHTML = `<i class="fa-solid fa-gauge-simple me-1"></i>${w.level || 'All Levels'}`;
         if (titleEl) titleEl.textContent = w.title;
         if (descEl) descEl.textContent = w.desc;
         if (durationEl) durationEl.textContent = w.duration;
         if (calEl) calEl.textContent = w.calories;
         if (repsEl) repsEl.textContent = w.sets;
 
-        if (musclesEl) {
+        // Render AI Form Checkpoints
+        const checkpointsWrap = document.querySelector('#featuredWorkoutCard .ai-cue-item')?.parentElement;
+        if (checkpointsWrap && Array.isArray(w.checkpoints)) {
+            checkpointsWrap.innerHTML = `
+                <div class="small fw-bold text-success text-uppercase mb-2"><i class="fa-solid fa-circle-check me-1"></i>AI Biomechanical Form Checkpoints</div>
+                ${w.checkpoints.map(cp => `<div class="ai-cue-item"><i class="fa-solid fa-check"></i><span>${cp}</span></div>`).join('')}
+            `;
+        }
+
+        if (musclesEl && Array.isArray(w.muscles)) {
             musclesEl.innerHTML = w.muscles.map((m, i) => {
-                const bg = i === 0 ? 'bg-primary' : (i === 1 ? 'bg-info' : 'bg-secondary');
+                const bg = i === 0 ? 'bg-primary' : (i === 1 ? 'bg-info text-dark' : 'bg-secondary');
                 return `<span class="badge ${bg} px-2 py-1">${m}</span>`;
             }).join('');
         }
 
         if (logBtn) {
-            logBtn.innerHTML = `<i class="fa-solid fa-check-double me-1"></i>Log Completed Workout (+${w.caloriesNum} kcal)`;
+            logBtn.innerHTML = `<i class="fa-solid fa-check-double me-1"></i>Log Completed Workout (+${w.caloriesNum || 120} kcal)`;
             logBtn.removeAttribute('disabled');
         }
 
-        // Smooth scroll to featured card
+        // Scroll smoothly to player
         const card = document.getElementById('featuredWorkoutCard');
         if (card) {
             card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
-    // Log Completed Workout to Backend SQLite Database
+    // Log Completed Workout to Backend
     async function logCurrentWorkout() {
-        const w = workoutRoutines[currentWorkoutIndex];
+        const catalog = getWorkoutsCatalog();
+        const w = catalog[currentWorkoutIndex] || catalog[0];
         const logBtn = document.getElementById('btnLogFeaturedWorkout');
+
         if (logBtn) {
             logBtn.setAttribute('disabled', 'true');
             logBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-1"></i>Logging to Activity Tracker...';
@@ -236,9 +185,9 @@
                 body: JSON.stringify({
                     activity_date: todayStr,
                     workout_type: w.title + ' (AI Video)',
-                    workout_duration: w.durationNum,
-                    calories_burned: w.caloriesNum,
-                    steps: w.filterCat === 'hiit' ? 1800 : 450,
+                    workout_duration: w.durationNum || 15,
+                    calories_burned: w.caloriesNum || 140,
+                    steps: w.filterCat === 'hiit' ? 1800 : (w.filterCat === 'calisthenics' ? 950 : 450),
                     water_intake: 0.4,
                     sleep_duration: 7.5
                 })
@@ -250,7 +199,7 @@
                 const toastEl = document.getElementById('workoutToast');
                 const toastMsg = document.getElementById('workoutToastMessage');
                 if (toastMsg) {
-                    toastMsg.textContent = `Completed! ${w.title} logged (+${w.caloriesNum} kcal, ${w.durationNum} mins) to your dashboard!`;
+                    toastMsg.textContent = `Completed! ${w.title} logged (+${w.caloriesNum || 140} kcal, ${w.durationNum || 15} mins) to your dashboard!`;
                 }
                 if (toastEl && window.bootstrap) {
                     const toast = new bootstrap.Toast(toastEl);
@@ -276,62 +225,203 @@
         }
     }
 
-    // =========================================================================
-    // AI Voice Workout Search & Speech Assistant Engine
-    // =========================================================================
+    // Dynamic Card Generator
+    function getFilteredWorkouts() {
+        const catalog = getWorkoutsCatalog();
+        const q = (currentSearchQuery || '').toLowerCase().trim();
+        const cat = currentCategory;
 
-    let isListening = false;
-    let lastSpokenText = '';
-    let lastRecommendedIndex = 0;
-    let currentCategory = 'all';
+        return catalog.filter(w => {
+            const matchCat = (cat === 'all' || w.filterCat === cat);
+            if (!matchCat) return false;
 
-    // AI Voice Suggestion Intent Classifier
-    function getAIVoiceRecommendation(query) {
+            if (!q) return true;
+
+            const searchableText = [
+                w.title,
+                w.category,
+                w.desc,
+                (w.muscles || []).join(' '),
+                (w.checkpoints || []).join(' ')
+            ].join(' ').toLowerCase();
+
+            return searchableText.includes(q);
+        });
+    }
+
+    function renderWorkoutGrid() {
+        const grid = document.getElementById('workoutCardsGrid');
+        if (!grid) return;
+
+        const filtered = getFilteredWorkouts();
+        const totalCount = filtered.length;
+        const catalog = getWorkoutsCatalog();
+
+        // Update counts
+        const displayedCountEl = document.getElementById('displayedCount');
+        const totalCountEl = document.getElementById('totalCount');
+        const catCountAll = document.getElementById('catCountAll');
+
+        if (catCountAll) catCountAll.textContent = catalog.length;
+        if (displayedCountEl) displayedCountEl.textContent = Math.min(visibleCount, totalCount);
+        if (totalCountEl) totalCountEl.textContent = totalCount;
+
+        // No results check
+        const noFound = document.getElementById('noWorkoutsFoundCard');
+        const noQuerySpan = document.getElementById('noMatchQuery');
+        if (noFound) {
+            if (totalCount === 0) {
+                noFound.classList.remove('d-none');
+                if (noQuerySpan) noQuerySpan.textContent = currentSearchQuery || currentCategory;
+            } else {
+                noFound.classList.add('d-none');
+            }
+        }
+
+        // Pagination buttons state
+        const loadMoreBtn = document.getElementById('btnLoadMoreWorkouts');
+        const showAllBtn = document.getElementById('btnShowAllWorkouts');
+
+        if (loadMoreBtn) {
+            if (visibleCount >= totalCount) {
+                loadMoreBtn.setAttribute('disabled', 'true');
+                loadMoreBtn.innerHTML = '<i class="fa-solid fa-check me-1"></i>All Workouts Displayed';
+            } else {
+                loadMoreBtn.removeAttribute('disabled');
+                const remaining = totalCount - visibleCount;
+                const nextBatch = Math.min(PAGE_CHUNK, remaining);
+                loadMoreBtn.innerHTML = `<i class="fa-solid fa-plus me-1"></i>Load More Workouts (+${nextBatch})`;
+            }
+        }
+
+        if (showAllBtn) {
+            if (visibleCount >= totalCount) {
+                showAllBtn.classList.add('d-none');
+            } else {
+                showAllBtn.classList.remove('d-none');
+                showAllBtn.innerHTML = `<i class="fa-solid fa-eye me-1"></i>Show All (${totalCount})`;
+            }
+        }
+
+        // Render card items
+        const visibleSlice = filtered.slice(0, visibleCount);
+        grid.innerHTML = visibleSlice.map(w => {
+            // Find global index in catalog for player targeting
+            const globalIndex = catalog.findIndex(item => item.id === w.id);
+            const badgeClass = getCategoryBadgeClass(w.filterCat);
+
+            const musclesHtml = (w.muscles || []).slice(0, 3).map(m => 
+                `<span class="muscle-pill">${m}</span>`
+            ).join('');
+
+            return `
+                <div class="col-md-6 col-lg-4 workout-item" data-category="${w.filterCat}">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="${w.thumbnail || 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80'}" 
+                                 alt="${w.title}" 
+                                 class="video-thumbnail-img" 
+                                 loading="lazy">
+                            <span class="badge ${badgeClass} video-category-badge">${w.filterCat.toUpperCase()}</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>${w.duration}</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="${globalIndex}" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>${w.calories}</span>
+                            <span class="badge-soft-cyan small">${w.level || 'All Levels'}</span>
+                        </div>
+                        <h5 class="fw-bold mb-1 fs-6 text-truncate" title="${w.title}">#${w.id} ${w.title}</h5>
+                        <p class="small text-secondary mb-3" style="min-height: 38px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                            ${w.desc}
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            ${musclesHtml}
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="${globalIndex}">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Re-attach card click listeners
+        grid.querySelectorAll('[data-workout-index]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const idx = parseInt(btn.getAttribute('data-workout-index'), 10);
+                selectWorkout(idx);
+            });
+        });
+
+        // Clear search button visibility
+        const clearBtn = document.getElementById('btnClearSearch');
+        if (clearBtn) {
+            if (currentSearchQuery) clearBtn.classList.remove('d-none');
+            else clearBtn.classList.add('d-none');
+        }
+    }
+
+    // AI Voice Assistant & Smart Keyword Matcher over 100 Routines
+    function findBestWorkoutMatch(query) {
+        const catalog = getWorkoutsCatalog();
         const q = (query || '').toLowerCase().trim();
-
-        if (q.includes('squat') || q.includes('leg') || q.includes('quad') || q.includes('glute') || q.includes('lower') || q.includes('calf')) {
+        if (!q) {
             return {
                 index: 0,
-                text: "For strong legs and glute power, I recommend Bodyweight Squats & Leg Power Mastery. Focus on keeping your chest proud and descending until your hips are below your knees for 140 active calories.",
-                meta: "Recommended: Bodyweight Squats • Glutes & Quads • 15 Mins (~140 kcal)"
-            };
-        } else if (q.includes('bicep') || q.includes('arm') || q.includes('curl') || q.includes('tricep') || q.includes('forearm')) {
-            return {
-                index: 1,
-                text: "For arm sculpt and upper body definition, I suggest Dumbbell Bicep & Arm Sculpt. Keep your elbows glued to your sides and use controlled 2-second eccentrics for 150 calories.",
-                meta: "Recommended: Bicep & Arm Sculpt • Arms & Hypertrophy • 18 Mins (~150 kcal)"
-            };
-        } else if (q.includes('hiit') || q.includes('fat') || q.includes('burn') || q.includes('cardio') || q.includes('sweat') || q.includes('weight loss') || q.includes('shred') || q.includes('fast')) {
-            return {
-                index: 2,
-                text: "For rapid calorie burn and high-energy conditioning, Explosive Metabolic HIIT Shred is your best choice. 260 calories in 22 minutes with high-metabolic intervals!",
-                meta: "Recommended: Metabolic HIIT Shred • Full Body & Cardio • 22 Mins (~260 kcal)"
-            };
-        } else if (q.includes('push') || q.includes('chest') || q.includes('pec') || q.includes('upper') || q.includes('shoulder')) {
-            return {
-                index: 3,
-                text: "For chest strength and pressing power, I recommend Push-Up Mechanics & Chest Form. Keep your elbows tucked at a 45-degree angle to protect your shoulder joints.",
-                meta: "Recommended: Push-Up Mechanics • Chest & Triceps • 15 Mins (~135 kcal)"
-            };
-        } else if (q.includes('core') || q.includes('abs') || q.includes('six pack') || q.includes('belly') || q.includes('stomach') || q.includes('plank')) {
-            return {
-                index: 4,
-                text: "For rotational stability and a shredded midsection, 360-Degree Core Stability & Six-Pack Conditioning is perfect! It strengthens your deep transverse core and protects your lower spine.",
-                meta: "Recommended: 360° Core Stability • Rectus Abdominis & Obliques • 14 Mins (~120 kcal)"
-            };
-        } else if (q.includes('yoga') || q.includes('mobility') || q.includes('stretch') || q.includes('flexibility') || q.includes('recovery') || q.includes('spine') || q.includes('back')) {
-            return {
-                index: 5,
-                text: "For active recovery and joint longevity, Full Body Mobility & Spinal Decompression Yoga is unmatched. Sync deep nasal breathing with each fluid flow.",
-                meta: "Recommended: Full Body Mobility Yoga • Hamstrings, Hips & Spine • 20 Mins (~95 kcal)"
-            };
-        } else {
-            return {
-                index: 2,
-                text: "Hello athlete! Today I recommend kicking off with our Explosive Metabolic HIIT Shred or Bodyweight Squats to elevate your metabolism and build stamina!",
-                meta: "Recommended: Metabolic HIIT Shred • Full Body Cardio • 22 Mins (~260 kcal)"
+                workout: catalog[0],
+                text: "Welcome to the AI Workout Studio! I've loaded 100 high-definition workout routines across Strength, HIIT, Core, Yoga, and Calisthenics. Tell me what muscle or workout you'd like to do today!"
             };
         }
+
+        const keywords = q.split(/\s+/).filter(w => w.length > 2);
+        let bestScore = -1;
+        let bestIndex = 0;
+
+        catalog.forEach((w, idx) => {
+            let score = 0;
+            const titleLower = w.title.toLowerCase();
+            const catLower = (w.category + ' ' + w.filterCat).toLowerCase();
+            const musclesLower = (w.muscles || []).join(' ').toLowerCase();
+            const descLower = (w.desc || '').toLowerCase();
+            const cuesLower = (w.checkpoints || []).join(' ').toLowerCase();
+
+            keywords.forEach(kw => {
+                if (titleLower.includes(kw)) score += 12;
+                if (musclesLower.includes(kw)) score += 10;
+                if (catLower.includes(kw)) score += 8;
+                if (cuesLower.includes(kw)) score += 6;
+                if (descLower.includes(kw)) score += 4;
+            });
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestIndex = idx;
+            }
+        });
+
+        const matched = catalog[bestIndex] || catalog[0];
+        const cue = (matched.checkpoints && matched.checkpoints[0]) ? matched.checkpoints[0] : "Hit full range of motion and maintain steady breathing";
+
+        const text = `For ${matched.title}, I recommend focusing on this key AI form checkpoint: ${cue}. This session will burn ${matched.calories} over ${matched.duration}!`;
+
+        return {
+            index: bestIndex,
+            workout: matched,
+            text: text
+        };
     }
 
     // Text-to-Speech Vocalizer
@@ -394,61 +484,19 @@
     }
 
     function triggerAIVoiceSuggestion(query, autoSpeak = true) {
-        const suggestion = getAIVoiceRecommendation(query);
-        lastRecommendedIndex = suggestion.index;
+        const result = findBestWorkoutMatch(query);
+        lastRecommendedIndex = result.index;
 
         const bubble = document.getElementById('aiSpeechBubble');
         const speechText = document.getElementById('aiSpeechText');
         const speechMeta = document.getElementById('aiSpeechMeta');
 
         if (bubble) bubble.classList.remove('d-none');
-        if (speechText) speechText.textContent = `"${suggestion.text}"`;
-        if (speechMeta) speechMeta.textContent = suggestion.meta;
+        if (speechText) speechText.textContent = `"${result.text}"`;
+        if (speechMeta) speechMeta.textContent = `Target: ${result.workout.title} • ${(result.workout.muscles || []).slice(0, 2).join(' & ')} • ${result.workout.calories}`;
 
         if (autoSpeak) {
-            speakVoiceCoach(suggestion.text);
-        }
-    }
-
-    // Unified Card Filter
-    function filterWorkouts(query, category) {
-        const q = (query || '').toLowerCase().trim();
-        const cat = category !== undefined ? category : currentCategory;
-        currentCategory = cat;
-
-        const cards = document.querySelectorAll('.workout-item');
-        let visibleCount = 0;
-
-        cards.forEach(card => {
-            const cardCat = card.getAttribute('data-category') || '';
-            const cardText = card.textContent.toLowerCase();
-
-            const matchCat = (cat === 'all' || cardCat === cat);
-            const matchQuery = (!q || cardText.includes(q));
-
-            if (matchCat && matchQuery) {
-                card.style.display = 'block';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        const noFound = document.getElementById('noWorkoutsFoundCard');
-        const noQuerySpan = document.getElementById('noMatchQuery');
-        if (noFound) {
-            if (visibleCount === 0) {
-                noFound.classList.remove('d-none');
-                if (noQuerySpan) noQuerySpan.textContent = q || cat;
-            } else {
-                noFound.classList.add('d-none');
-            }
-        }
-
-        const clearBtn = document.getElementById('btnClearSearch');
-        if (clearBtn) {
-            if (q) clearBtn.classList.remove('d-none');
-            else clearBtn.classList.add('d-none');
+            speakVoiceCoach(result.text);
         }
     }
 
@@ -480,7 +528,7 @@
             try {
                 recognition.start();
             } catch (err) {
-                console.log('Recognition already started:', err);
+                console.log('Recognition already running:', err);
             }
         }
 
@@ -503,7 +551,9 @@
             if (searchInput) {
                 searchInput.value = transcript;
             }
-            filterWorkouts(transcript, currentCategory);
+            currentSearchQuery = transcript;
+            visibleCount = PAGE_CHUNK;
+            renderWorkoutGrid();
             triggerAIVoiceSuggestion(transcript, true);
         };
 
@@ -554,8 +604,8 @@
 
                 const filter = btn.getAttribute('data-filter') || 'all';
                 currentCategory = filter;
-                const query = searchInput ? searchInput.value : '';
-                filterWorkouts(query, filter);
+                visibleCount = PAGE_CHUNK;
+                renderWorkoutGrid();
             });
         });
 
@@ -565,12 +615,16 @@
                 chip.classList.add('active');
 
                 const keyword = chip.getAttribute('data-chip') || '';
+                const queryVal = keyword === 'all' ? '' : keyword;
                 if (searchInput) {
-                    searchInput.value = keyword === 'all' ? '' : keyword;
+                    searchInput.value = queryVal;
                 }
-                filterWorkouts(keyword === 'all' ? '' : keyword, currentCategory);
-                if (keyword !== 'all') {
-                    triggerAIVoiceSuggestion(keyword, true);
+                currentSearchQuery = queryVal;
+                visibleCount = PAGE_CHUNK;
+                renderWorkoutGrid();
+
+                if (queryVal) {
+                    triggerAIVoiceSuggestion(queryVal, true);
                 }
             });
         });
@@ -581,36 +635,44 @@
         const searchInput = document.getElementById('searchWorkoutInput');
         const clearBtn = document.getElementById('btnClearSearch');
 
-        if (!searchInput) return;
-
-        searchInput.addEventListener('input', (e) => {
-            filterWorkouts(e.target.value, currentCategory);
-        });
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value;
+                visibleCount = PAGE_CHUNK;
+                renderWorkoutGrid();
+            });
+        }
 
         if (clearBtn) {
             clearBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                filterWorkouts('', currentCategory);
-                searchInput.focus();
+                if (searchInput) searchInput.value = '';
+                currentSearchQuery = '';
+                visibleCount = PAGE_CHUNK;
+                renderWorkoutGrid();
+                if (searchInput) searchInput.focus();
             });
         }
 
         const resetBtn = document.getElementById('btnResetSearch');
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
-                searchInput.value = '';
+                if (searchInput) searchInput.value = '';
+                currentSearchQuery = '';
                 currentCategory = 'all';
+                visibleCount = PAGE_CHUNK;
+
                 const filterButtons = document.querySelectorAll('#categoryFilterBar button');
                 filterButtons.forEach(b => b.classList.remove('active'));
                 if (filterButtons[0]) filterButtons[0].classList.add('active');
-                filterWorkouts('', 'all');
+
+                renderWorkoutGrid();
             });
         }
 
         const voiceSuggestBtn = document.getElementById('btnVoiceSuggest');
         if (voiceSuggestBtn) {
             voiceSuggestBtn.addEventListener('click', () => {
-                const query = searchInput.value.trim() || currentCategory;
+                const query = (searchInput ? searchInput.value.trim() : '') || currentCategory;
                 triggerAIVoiceSuggestion(query, true);
             });
         }
@@ -650,22 +712,33 @@
         }
     }
 
-    // Bind Click Events
-    function initEvents() {
-        document.querySelectorAll('[data-workout-index]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const idx = parseInt(btn.getAttribute('data-workout-index'), 10);
-                selectWorkout(idx);
-            });
-        });
+    // Pagination Listeners
+    function initPagination() {
+        const loadMoreBtn = document.getElementById('btnLoadMoreWorkouts');
+        const showAllBtn = document.getElementById('btnShowAllWorkouts');
 
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                visibleCount += PAGE_CHUNK;
+                renderWorkoutGrid();
+            });
+        }
+
+        if (showAllBtn) {
+            showAllBtn.addEventListener('click', () => {
+                visibleCount = 1000;
+                renderWorkoutGrid();
+            });
+        }
+    }
+
+    // Bind Featured Video & URL Params
+    function initEvents() {
         const logBtn = document.getElementById('btnLogFeaturedWorkout');
         if (logBtn) {
             logBtn.addEventListener('click', logCurrentWorkout);
         }
 
-        // Check if URL has ?search= or ?q= or ?action=voice
         const params = new URLSearchParams(window.location.search);
         const searchParam = params.get('search') || params.get('q');
         const actionParam = params.get('action');
@@ -673,7 +746,8 @@
         if (searchParam) {
             const searchInput = document.getElementById('searchWorkoutInput');
             if (searchInput) searchInput.value = searchParam;
-            filterWorkouts(searchParam, 'all');
+            currentSearchQuery = searchParam;
+            renderWorkoutGrid();
             triggerAIVoiceSuggestion(searchParam, true);
         } else if (actionParam === 'voice') {
             triggerAIVoiceSuggestion('', true);
@@ -681,10 +755,15 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+        // Initial setup
         initFilters();
         initSearch();
         initSpeechRecognition();
+        initPagination();
         initEvents();
+
+        // Render initial 12 cards from 100 workouts catalog
+        renderWorkoutGrid();
     });
 
 })();
