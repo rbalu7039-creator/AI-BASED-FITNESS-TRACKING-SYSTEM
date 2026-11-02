@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+cloudflared.exe
+*.zip
+.vscode/
+*.log

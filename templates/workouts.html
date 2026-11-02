@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>AI Video Workout Studio | FitAI Pulse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mobile-topbar">
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn-glass py-1 px-2" data-action="toggle-sidebar" type="button"><i class="fa-solid fa-bars"></i></button>
+            <span class="fw-bold">FitAI Pulse</span>
+        </div>
+        <button class="btn-glass py-1 px-2" data-action="toggle-theme" type="button"><i class="fa-solid fa-sun text-warning"></i></button>
+    </div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="app-wrapper" id="workoutsPageRoot">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <a href="/dashboard" class="sidebar-brand">
+                <div class="brand-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                    <div class="brand-title">FitAI Pulse</div>
+                    <div class="brand-subtitle">AI Fitness System</div>
+                </div>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li><a href="/dashboard" class="sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
+                <li><a href="/workouts" class="sidebar-link active"><i class="fa-solid fa-circle-play text-danger"></i><span>AI Video Workouts</span></a></li>
+                <li><a href="/vision" class="sidebar-link"><i class="fa-solid fa-video text-warning"></i><span>AI Vision Tracker</span></a></li>
+                <li><a href="/activities" class="sidebar-link"><i class="fa-solid fa-dumbbell"></i><span>Activity Log</span></a></li>
+                <li><a href="/analytics" class="sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Progress Analytics</span></a></li>
+                <li><a href="/recommendations" class="sidebar-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Coach &amp; Plan</span></a></li>
+                <li><a href="/nutrition" class="sidebar-link"><i class="fa-solid fa-apple-whole text-success"></i><span>AI Nutrition</span></a></li>
+                <li><a href="/profile" class="sidebar-link"><i class="fa-solid fa-user-gear"></i><span>Profile &amp; Goals</span></a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn-glass w-100 justify-content-start" data-action="toggle-theme" type="button">
+                    <i class="fa-solid fa-sun text-warning"></i>
+                    <span class="theme-label">Light Mode</span>
+                </button>
+                <div class="user-mini-card">
+                    <div class="user-avatar-circle" id="sidebarUserInitial">A</div>
+                    <div class="overflow-hidden">
+                        <div class="fw-bold small text-truncate" id="sidebarUserName">Aarav Sharma</div>
+                        <div class="text-secondary" style="font-size: 0.74rem;" id="sidebarUserGoal">Weight Loss</div>
+                    </div>
+                </div>
+                <button class="btn-glass w-100 text-danger border-danger border-opacity-25" data-action="logout" type="button">
+                    <i class="fa-solid fa-power-off"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="app-main">
+            <!-- Header Banner -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center g-3">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-film me-1"></i>AI Guided Video Studio</span>
+                            <span class="badge-soft-cyan"><i class="fa-solid fa-brain me-1"></i>Biomechanical Form Guidance</span>
+                            <span class="badge-soft-rose"><i class="fa-solid fa-fire me-1"></i>Calorie Expenditure Sync</span>
+                        </div>
+                        <h2 class="fw-bolder mb-1">AI Guided Video Workout Studio</h2>
+                        <div class="small text-secondary">
+                            Follow professional training routines with real-time AI form checkpoints, target muscle breakdowns, and 1-click workout logging.
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="/vision" class="btn-brand"><i class="fa-solid fa-video me-1"></i>Train with Live Camera AI</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Masterclass Video Player -->
+            <div class="glass-card p-4 mb-4" id="featuredWorkoutCard">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <div class="video-frame-container" id="mainVideoPlayerWrap">
+                            <iframe id="mainWorkoutIframe" 
+                                    src="https://www.youtube.com/embed/aclHkVaku9U?rel=0&enablejsapi=1" 
+                                    title="AI Squat Workout Guide" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="badge bg-danger-subtle text-danger fw-bold text-uppercase" id="featuredCategory">STRENGTH &bull; MASTERCLASS</span>
+                            <span class="badge-soft-cyan" id="featuredLevel"><i class="fa-solid fa-gauge-simple me-1"></i>All Levels</span>
+                        </div>
+                        <h3 class="fw-bolder mb-2" id="featuredTitle">Bodyweight Squats &amp; Leg Power Mastery</h3>
+                        <p class="text-secondary small mb-3" id="featuredDesc">
+                            Learn optimal hip-hinge mechanics, knee alignment, and 90&deg; depth control to maximize glute and quad engagement without spinal strain.
+                        </p>
+
+                        <!-- Telemetry Pills -->
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="muscle-pill"><i class="fa-solid fa-clock text-info"></i><span id="featuredDuration">15 Mins</span></span>
+                            <span class="muscle-pill"><i class="fa-solid fa-fire text-danger"></i><span id="featuredCalories">~140 kcal</span></span>
+                            <span class="muscle-pill"><i class="fa-solid fa-layer-group text-warning"></i><span id="featuredReps">3 Sets &bull; 15 Reps</span></span>
+                        </div>
+
+                        <!-- AI Posture Checkpoints -->
+                        <div class="p-3 rounded-3 border mb-3" style="border-color: var(--border-glass) !important; background: rgba(16,185,129,0.04);">
+                            <div class="small fw-bold text-success text-uppercase mb-2"><i class="fa-solid fa-circle-check me-1"></i>AI Biomechanical Form Checkpoints</div>
+                            <div class="ai-cue-item"><i class="fa-solid fa-check"></i><span>Maintain neutral lumbar spine; avoid rounding back</span></div>
+                            <div class="ai-cue-item"><i class="fa-solid fa-check"></i><span>Descend until hip crease is below knee cap (&lt;90&deg;)</span></div>
+                            <div class="ai-cue-item"><i class="fa-solid fa-check"></i><span>Keep knees tracking over 2nd &amp; 3rd toes (prevent valgus)</span></div>
+                        </div>
+
+                        <!-- Muscle Groups -->
+                        <div class="mb-3">
+                            <div class="small text-secondary mb-1">TARGET MUSCLES:</div>
+                            <div class="d-flex flex-wrap gap-1" id="featuredMuscles">
+                                <span class="badge bg-primary px-2 py-1">Quadriceps</span>
+                                <span class="badge bg-info px-2 py-1">Gluteus Maximus</span>
+                                <span class="badge bg-secondary px-2 py-1">Hamstrings &amp; Core</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Actions -->
+                        <div class="d-flex flex-wrap gap-2 pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1" id="btnLogFeaturedWorkout">
+                                <i class="fa-solid fa-check-double me-1"></i>Log Completed Workout (+140 kcal)
+                            </button>
+                            <a href="/vision" class="btn-glass" title="Switch to Live Camera AI Tracker">
+                                <i class="fa-solid fa-video text-warning"></i> Train with AI Camera
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs & Search -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                <div class="d-flex flex-wrap gap-2" id="categoryFilterBar">
+                    <button class="btn-glass py-1 px-3 active" data-filter="all">All Routines</button>
+                    <button class="btn-glass py-1 px-3" data-filter="strength">Strength</button>
+                    <button class="btn-glass py-1 px-3" data-filter="hiit">HIIT &amp; Cardio</button>
+                    <button class="btn-glass py-1 px-3" data-filter="core">Core &amp; Abs</button>
+                    <button class="btn-glass py-1 px-3" data-filter="mobility">Yoga &amp; Mobility</button>
+                </div>
+
+                <div class="search-box-wrapper" style="min-width: 260px;">
+                    <div class="input-group">
+                        <span class="input-group-text border-end-0 bg-transparent text-secondary" style="border-color: var(--border-glass) !important;">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0 text-white" id="searchWorkoutInput" placeholder="Search workouts, muscles..." style="background: var(--bg-input); border-color: var(--border-glass) !important;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workout Cards Grid -->
+            <div class="row g-4" id="workoutCardsGrid">
+                <!-- Workout Card 1: Squats -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="strength">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&auto=format&fit=crop&q=80" alt="Bodyweight Squats" class="video-thumbnail-img">
+                            <span class="badge bg-danger video-category-badge">Strength</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>15:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="0" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~140 kcal</span>
+                            <span class="badge-soft-emerald small">Beginner &bull; Intermediate</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Bodyweight Squats &amp; Leg Power</h5>
+                        <p class="small text-secondary mb-3">Strict biomechanics for glute activation, hip hinge depth, and spine posture.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Quadriceps</span>
+                            <span class="muscle-pill">Gluteus</span>
+                            <span class="muscle-pill">Hamstrings</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="0">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Card 2: Bicep Curls -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="strength">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&auto=format&fit=crop&q=80" alt="Bicep Curls" class="video-thumbnail-img">
+                            <span class="badge bg-primary video-category-badge">Strength</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>18:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="1" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~150 kcal</span>
+                            <span class="badge-soft-cyan small">All Levels</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Dumbbell Bicep &amp; Arm Sculpt</h5>
+                        <p class="small text-secondary mb-3">Controlled elbow pivot, zero momentum swinging, and peak biceps contraction.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Biceps Brachii</span>
+                            <span class="muscle-pill">Brachialis</span>
+                            <span class="muscle-pill">Forearms</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="1">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Card 3: HIIT Fat Burn -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="hiit">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=800&auto=format&fit=crop&q=80" alt="HIIT Cardio" class="video-thumbnail-img">
+                            <span class="badge bg-warning text-dark video-category-badge">HIIT &bull; Fat Burn</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>22:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="2" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~260 kcal</span>
+                            <span class="badge-soft-rose small">High Intensity</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Explosive Metabolic HIIT Shred</h5>
+                        <p class="small text-secondary mb-3">Burpees, jump squats, high knees, and mountain climbers for maximum post-exercise oxygen consumption.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Full Body</span>
+                            <span class="muscle-pill">Cardiovascular</span>
+                            <span class="muscle-pill">Calves</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="2">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Card 4: Push-Ups & Chest -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="strength">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?w=800&auto=format&fit=crop&q=80" alt="Push-ups" class="video-thumbnail-img">
+                            <span class="badge bg-info video-category-badge">Strength</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>15:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="3" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~135 kcal</span>
+                            <span class="badge-soft-cyan small">All Levels</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Push-Up Mechanics &amp; Chest Form</h5>
+                        <p class="small text-secondary mb-3">Scapular protraction, 45&deg; elbow tuck angle, and full chest-to-floor depth.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Pectorals</span>
+                            <span class="muscle-pill">Triceps</span>
+                            <span class="muscle-pill">Anterior Deltoids</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="3">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Card 5: Core & Abs -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="core">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop&q=80" alt="Core and Abs" class="video-thumbnail-img">
+                            <span class="badge bg-success video-category-badge">Core &bull; Abs</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>14:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="4" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~120 kcal</span>
+                            <span class="badge-soft-emerald small">Intermediate</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">360&deg; Core Stability &amp; Six-Pack</h5>
+                        <p class="small text-secondary mb-3">Hollow body holds, Russian twists, planks, and deadbugs with pelvic alignment.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Rectus Abdominis</span>
+                            <span class="muscle-pill">Obliques</span>
+                            <span class="muscle-pill">Transverse Abs</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="4">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Workout Card 6: Yoga & Mobility -->
+                <div class="col-md-6 col-lg-4 workout-item" data-category="mobility">
+                    <div class="glass-card video-card h-100 p-3">
+                        <div class="video-thumbnail-wrap mb-3">
+                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop&q=80" alt="Yoga and Mobility" class="video-thumbnail-img">
+                            <span class="badge bg-indigo text-white video-category-badge">Yoga &bull; Recovery</span>
+                            <span class="video-duration-badge"><i class="fa-regular fa-clock me-1"></i>20:00</span>
+                            <div class="video-play-overlay">
+                                <button class="play-button-circle border-0" data-workout-index="5" title="Watch Video">
+                                    <i class="fa-solid fa-play"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="small text-secondary"><i class="fa-solid fa-fire text-danger me-1"></i>~95 kcal</span>
+                            <span class="badge-soft-cyan small">All Levels</span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Full Body Mobility &amp; Spinal Release</h5>
+                        <p class="small text-secondary mb-3">Hip decompression, hamstring lengthening, thoracic rotation, and parasympathetic recovery.</p>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span class="muscle-pill">Hip Flexors</span>
+                            <span class="muscle-pill">Thoracic Spine</span>
+                            <span class="muscle-pill">Hamstrings</span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-auto pt-2 border-top" style="border-color: var(--border-glass) !important;">
+                            <button class="btn-brand flex-grow-1 py-1 small btn-select-workout" data-workout-index="5">
+                                <i class="fa-solid fa-play me-1"></i>Watch &amp; Train
+                            </button>
+                            <a href="/vision" class="btn-glass py-1 px-2" title="Track with AI Camera">
+                                <i class="fa-solid fa-video text-warning"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+        <div id="workoutToast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="workoutToastMessage">Workout logged successfully!</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/workouts.js"></script>
+</body>
+</html>

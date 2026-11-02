@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>AI Nutrition &amp; Macro Planner | FitAI Pulse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="mobile-topbar">
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn-glass py-1 px-2" data-action="toggle-sidebar" type="button"><i class="fa-solid fa-bars"></i></button>
+            <span class="fw-bold">FitAI Pulse</span>
+        </div>
+        <button class="btn-glass py-1 px-2" data-action="toggle-theme" type="button"><i class="fa-solid fa-sun text-warning"></i></button>
+    </div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="app-wrapper" id="nutritionPageRoot">
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar" id="appSidebar">
+            <a href="/dashboard" class="sidebar-brand">
+                <div class="brand-icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                    <div class="brand-title">FitAI Pulse</div>
+                    <div class="brand-subtitle">AI Fitness System</div>
+                </div>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li><a href="/dashboard" class="sidebar-link"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a></li>
+                <li><a href="/workouts" class="sidebar-link"><i class="fa-solid fa-circle-play text-danger"></i><span>AI Video Workouts</span></a></li>
+                <li><a href="/vision" class="sidebar-link"><i class="fa-solid fa-video text-warning"></i><span>AI Vision Tracker</span></a></li>
+                <li><a href="/activities" class="sidebar-link"><i class="fa-solid fa-dumbbell"></i><span>Activity Log</span></a></li>
+                <li><a href="/analytics" class="sidebar-link"><i class="fa-solid fa-chart-line"></i><span>Progress Analytics</span></a></li>
+                <li><a href="/recommendations" class="sidebar-link"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Coach &amp; Plan</span></a></li>
+                <li><a href="/nutrition" class="sidebar-link active"><i class="fa-solid fa-apple-whole text-success"></i><span>AI Nutrition</span></a></li>
+                <li><a href="/profile" class="sidebar-link"><i class="fa-solid fa-user-gear"></i><span>Profile &amp; Goals</span></a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn-glass w-100 justify-content-start" data-action="toggle-theme" type="button">
+                    <i class="fa-solid fa-sun text-warning"></i>
+                    <span class="theme-label">Light Mode</span>
+                </button>
+                <div class="user-mini-card">
+                    <div class="user-avatar-circle" id="sidebarUserInitial">A</div>
+                    <div class="overflow-hidden">
+                        <div class="fw-bold small text-truncate" id="sidebarUserName">Aarav Sharma</div>
+                        <div class="text-secondary" style="font-size: 0.74rem;" id="sidebarUserGoal">Weight Loss</div>
+                    </div>
+                </div>
+                <button class="btn-glass w-100 text-danger border-danger border-opacity-25" data-action="logout" type="button">
+                    <i class="fa-solid fa-power-off"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="app-main">
+            <!-- Header Banner -->
+            <div class="glass-card mb-4">
+                <div class="row align-items-center g-3">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                            <span class="badge-soft-emerald"><i class="fa-solid fa-bowl-food me-1"></i>Metabolic Macro Engine</span>
+                            <span class="badge-soft-cyan"><i class="fa-solid fa-fire me-1"></i>TDEE Caloric Deficit / Surplus</span>
+                            <span class="badge-soft-amber"><i class="fa-solid fa-faucet-drip me-1"></i>Hydration Telemetry</span>
+                        </div>
+                        <h2 class="fw-bolder mb-1">AI Nutrition &amp; Macro Planner</h2>
+                        <div class="small text-secondary">
+                            Mifflin-St Jeor metabolic calculations tailored to your biometric profile and fitness goal.
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <button class="btn-brand" id="btnLogDailyWater"><i class="fa-solid fa-glass-water me-1"></i>+250ml Water</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Summary Cards -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-6 col-xl-3">
+                    <div class="glass-card p-3">
+                        <div class="d-flex justify-content-between text-secondary small">
+                            <span>TARGET CALORIES</span>
+                            <i class="fa-solid fa-fire text-danger"></i>
+                        </div>
+                        <div class="fs-2 fw-bold font-mono-metric text-danger mt-1" id="nutriCalorieTarget">2,150 <span class="fs-6 text-secondary">kcal</span></div>
+                        <div class="small text-secondary" id="nutriGoalContext">Calorie Deficit for Fat Loss</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="glass-card p-3">
+                        <div class="d-flex justify-content-between text-secondary small">
+                            <span>DAILY PROTEIN</span>
+                            <i class="fa-solid fa-drumstick-bite text-info"></i>
+                        </div>
+                        <div class="fs-2 fw-bold font-mono-metric text-info mt-1" id="nutriProteinTarget">150g</div>
+                        <div class="small text-secondary">2.0g per kg bodyweight</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="glass-card p-3">
+                        <div class="d-flex justify-content-between text-secondary small">
+                            <span>DAILY CARBS &amp; FATS</span>
+                            <i class="fa-solid fa-wheat-awn text-warning"></i>
+                        </div>
+                        <div class="fs-2 fw-bold font-mono-metric text-warning mt-1" id="nutriCarbsFats">215g / 65g</div>
+                        <div class="small text-secondary">Optimal glycogen replenishment</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="glass-card p-3">
+                        <div class="d-flex justify-content-between text-secondary small">
+                            <span>HYDRATION GOAL</span>
+                            <i class="fa-solid fa-droplet text-primary"></i>
+                        </div>
+                        <div class="fs-2 fw-bold font-mono-metric text-primary mt-1" id="nutriWaterTarget">2.8L <span class="fs-6 text-secondary" id="nutriCurrentWater">/ 1.5L logged</span></div>
+                        <div class="small text-success"><i class="fa-solid fa-check me-1"></i>54% of daily baseline</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Macro Split Chart & AI Meal Plans -->
+            <div class="row g-4 mb-4">
+                <!-- Left: Macro Donut -->
+                <div class="col-lg-4">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-pie me-2 text-info"></i>Macronutrient Ratio</h5>
+                        <div style="position: relative; height: 220px; width: 100%;">
+                            <canvas id="macroDonutChart"></canvas>
+                        </div>
+                        <div class="d-flex justify-content-around text-center mt-3 pt-3 border-top" style="border-color: var(--border-glass) !important;">
+                            <div>
+                                <span class="badge bg-primary px-2 py-1 mb-1">Protein</span>
+                                <div class="fw-bold font-mono-metric">30%</div>
+                            </div>
+                            <div>
+                                <span class="badge bg-warning px-2 py-1 mb-1 text-dark">Carbs</span>
+                                <div class="fw-bold font-mono-metric">45%</div>
+                            </div>
+                            <div>
+                                <span class="badge bg-danger px-2 py-1 mb-1">Fats</span>
+                                <div class="fw-bold font-mono-metric">25%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: AI Generated Meal Suggestions -->
+                <div class="col-lg-8">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0"><i class="fa-solid fa-wand-magic-sparkles me-2 text-warning"></i>Personalized AI Meal Blueprint</h5>
+                            <button class="btn-glass py-1 px-3 small" id="btnRefreshMeals"><i class="fa-solid fa-arrows-rotate me-1"></i>Regenerate Meals</button>
+                        </div>
+
+                        <div class="row g-3" id="mealsContainer">
+                            <!-- Breakfast -->
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(16,185,129,0.04);">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span class="badge bg-success-subtle text-success fw-bold">BREAKFAST &bull; ~480 kcal</span>
+                                        <span class="small text-secondary">32g Protein</span>
+                                    </div>
+                                    <div class="fw-bold">Scrambled Eggs with Avocado &amp; Oatmeal</div>
+                                    <div class="small text-secondary mt-1">3 whole eggs, spinach, 1 slice whole-grain sourdough toast, and 50g rolled oats with berries.</div>
+                                </div>
+                            </div>
+
+                            <!-- Lunch -->
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(6,182,212,0.04);">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span class="badge bg-info-subtle text-info fw-bold">LUNCH &bull; ~620 kcal</span>
+                                        <span class="small text-secondary">48g Protein</span>
+                                    </div>
+                                    <div class="fw-bold">Grilled Chicken Breast, Quinoa &amp; Steamed Broccoli</div>
+                                    <div class="small text-secondary mt-1">180g lean chicken breast with olive oil drizzle, 1 cup cooked quinoa, and fresh greens.</div>
+                                </div>
+                            </div>
+
+                            <!-- Snack -->
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(245,158,11,0.04);">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span class="badge bg-warning-subtle text-warning fw-bold">POST-WORKOUT SNACK &bull; ~310 kcal</span>
+                                        <span class="small text-secondary">28g Protein</span>
+                                    </div>
+                                    <div class="fw-bold">Greek Yogurt Bowl with Almonds &amp; Honey</div>
+                                    <div class="small text-secondary mt-1">200g Greek yogurt 0% fat, 15g raw almonds, 1 tsp chia seeds, and 1 scoop whey protein.</div>
+                                </div>
+                            </div>
+
+                            <!-- Dinner -->
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3 border h-100" style="border-color: var(--border-glass) !important; background: rgba(99,102,241,0.04);">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <span class="badge bg-primary-subtle text-primary fw-bold">DINNER &bull; ~540 kcal</span>
+                                        <span class="small text-secondary">42g Protein</span>
+                                    </div>
+                                    <div class="fw-bold">Baked Salmon Fillet with Sweet Potato</div>
+                                    <div class="small text-secondary mt-1">160g Atlantic salmon, 150g roasted sweet potato cubes, and grilled asparagus spears.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+        <div id="nutriToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="nutriToastMessage">+250ml water added!</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/nutrition.js"></script>
+</body>
+</html>
