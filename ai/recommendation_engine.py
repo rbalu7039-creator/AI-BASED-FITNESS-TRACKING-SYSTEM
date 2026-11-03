@@ -17,13 +17,19 @@ class FitnessRecommendationEngine:
     @classmethod
     def get_model_bundle(cls):
         if cls._model_bundle is None:
-            if not os.path.exists(MODEL_PATH):
-                cls._model_bundle = train_and_save_model()
-            else:
+            candidate = MODEL_PATH
+            if not os.path.exists(candidate):
+                repo_bundle = os.path.join(os.path.abspath(os.path.dirname(__file__)), "fitness_model.pkl")
+                if os.path.exists(repo_bundle):
+                    candidate = repo_bundle
+
+            if os.path.exists(candidate):
                 try:
-                    cls._model_bundle = joblib.load(MODEL_PATH)
+                    cls._model_bundle = joblib.load(candidate)
                 except Exception:
                     cls._model_bundle = train_and_save_model()
+            else:
+                cls._model_bundle = train_and_save_model()
         return cls._model_bundle
 
     @classmethod

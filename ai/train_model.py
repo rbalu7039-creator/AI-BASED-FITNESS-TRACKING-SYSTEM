@@ -9,7 +9,18 @@ from sklearn.metrics import accuracy_score, r2_score
 
 AI_DIR = os.path.abspath(os.path.dirname(__file__))
 DATASET_PATH = os.path.join(AI_DIR, "dataset.csv")
-MODEL_PATH = os.path.join(AI_DIR, "fitness_model.pkl")
+
+if os.environ.get("VERCEL"):
+    MODEL_PATH = os.path.join("/tmp", "fitness_model.pkl")
+    _src_model = os.path.join(AI_DIR, "fitness_model.pkl")
+    if os.path.exists(_src_model) and not os.path.exists(MODEL_PATH):
+        try:
+            import shutil
+            shutil.copy2(_src_model, MODEL_PATH)
+        except Exception:
+            pass
+else:
+    MODEL_PATH = os.path.join(AI_DIR, "fitness_model.pkl")
 
 
 def generate_training_dataset(csv_path=DATASET_PATH, n_samples=450):
