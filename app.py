@@ -69,6 +69,17 @@ def create_app():
     @app.route("/api/index")
     @app.route("/api/index/")
     def index_page():
+        if request.args.get("debug") == "1":
+            env_dump = {
+                k: str(v)
+                for k, v in request.environ.items()
+                if any(x in k.upper() for x in ["HTTP", "PATH", "URI", "ROUTE", "VERCEL", "QUERY"])
+            }
+            return jsonify({
+                "request_path": request.path,
+                "request_url": request.url,
+                "environ": env_dump
+            })
         return render_template("index.html")
 
     @app.route("/favicon.ico")

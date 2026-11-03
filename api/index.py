@@ -22,44 +22,59 @@ class VercelPathFixMiddleware:
         self.wsgi_app = wsgi_app
 
     def __call__(self, environ, start_response):
-        # 1. Check HTTP headers provided by Vercel edge proxy
-        forwarded_uri = (
-            environ.get("HTTP_X_FORWARDED_URI")
-            or environ.get("HTTP_X_MATCHED_PATH")
-            or environ.get("HTTP_X_ORIGINAL_URI")
-            or environ.get("HTTP_X_NOW_ROUTE_MATCHES")
-        )
-
         real_path = None
 
-        if forwarded_uri and not forwarded_uri.startswith("/api/index"):
-            real_path = forwarded_uri.split("?")[0]
-        else:
-            # 2. Check query string for __path parameter
-            qs = environ.get("QUERY_STRING", "")
-            if "__path=" in qs:
-                params = urllib.parse.parse_qs(qs)
-                captured = params.get("__path", [""])[0]
-                real_path = "/" + captured.lstrip("/")
-                # Clean up __path from QUERY_STRING so application routes don't see it
-                remaining_params = {k: v for k, v in params.items() if k != "__path"}
-                environ["QUERY_STRING"] = urllib.parse.urlencode(remaining_params, doseq=True)
+        # A. Check HTTP headers for original client request path
+        for h in [
+            "HTTP_X_FORWARDED_URI",
+            "HTTP_X_ORIGINAL_URI",
+            "HTTP_X_FORWARDED_PATH",
+            "HTTP_X_REWRITE_URL",
+        ]:
+            val = environ.get(h)
+            if val and not val.startswith("/api/index"):
+                real_path = val.split("?")[0]
+                break
 
-        if real_path:
-            if not real_path.startswith("/"):
-                real_path = "/" + real_path
-            environ["PATH_INFO"] = real_path
+        # B. Check __path parameter anywhere in query string or headers
+        if not real_path:
+            search_blob = "&".join(
+                [
+                    environ.get("QUERY_STRING", ""),
+                    environ.get("HTTP_X_MATCHED_PATH", ""),
+                    str(environ.get("HTTP_X_FORWARDED_URI", "")),
+                ]
+            )
+            if "__path=" in search_blob:
+                parts = search_blob.split("__path=")
+                if len(parts) > 1:
+                    raw_val = parts[1].split("&")[0]
+                    real_path = "/" + urllib.parse.unquote(raw_val).lstrip("/")
+
+        # C. Check HTTP_X_NOW_ROUTE_MATCHES (Vercel rewrite regex capture, e.g. 1=login)
+        if not real_path:
+            route_matches = environ.get("HTTP_X_NOW_ROUTE_MATCHES", "")
+            if "1=" in route_matches:
+                m_parts = route_matches.split("1=")
+                if len(m_parts) > 1:
+                    raw_m = m_parts[1].split("&")[0]
+                    real_path = "/" + urllib.parse.unquote(raw_m).lstrip("/")
+
+        # D. Clean up __path from QUERY_STRING if present
+        qs = environ.get("QUERY_STRING", "")
+        if "__path=" in qs:
+            params = urllib.parse.parse_qs(qs)
+            remaining_params = {k: v for k, v in params.items() if k != "__path"}
+            environ["QUERY_STRING"] = urllib.parse.urlencode(remaining_params, doseq=True)
+
+        # Set PATH_INFO
+        if real_path and real_path != "/":
+            environ["PATH_INFO"] = "/" + real_path.lstrip("/")
         else:
-            # 3. Fallback: If PATH_INFO starts with /api/index, map to root or remainder
             path_info = environ.get("PATH_INFO", "")
             if path_info.startswith("/api/index"):
-                remainder = path_info[len("/api/index"):]
-                if not remainder or remainder == "/":
-                    environ["PATH_INFO"] = "/"
-                else:
-                    if not remainder.startswith("/"):
-                        remainder = "/" + remainder
-                    environ["PATH_INFO"] = remainder
+                remainder = path_info[len("/api/index") :]
+                environ["PATH_INFO"] = "/" + remainder.lstrip("/") if remainder else "/"
             elif not path_info:
                 environ["PATH_INFO"] = "/"
 
